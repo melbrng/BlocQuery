@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		432BB3301C17680500ED7148 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 432BB32F1C17680500ED7148 /* LoginViewController.m */; };
+		4368D1E41C18B0A3003B7D61 /* BlocQuery.png in Resources */ = {isa = PBXBuildFile; fileRef = 4368D1E21C18B0A3003B7D61 /* BlocQuery.png */; };
+		4368D1E51C18B0A3003B7D61 /* BlocQuery@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4368D1E31C18B0A3003B7D61 /* BlocQuery@2x.png */; };
 		439BBB5E1C14E0450070CCBB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 439BBB5D1C14E0450070CCBB /* main.m */; };
 		439BBB611C14E0450070CCBB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 439BBB601C14E0450070CCBB /* AppDelegate.m */; };
 		439BBB641C14E0450070CCBB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 439BBB631C14E0450070CCBB /* ViewController.m */; };
@@ -37,6 +40,10 @@
 
 /* Begin PBXFileReference section */
 		095DCDBAFDB9A7D39C4E7E5E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		432BB32E1C17680500ED7148 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		432BB32F1C17680500ED7148 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		4368D1E21C18B0A3003B7D61 /* BlocQuery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlocQuery.png; sourceTree = "<group>"; };
+		4368D1E31C18B0A3003B7D61 /* BlocQuery@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BlocQuery@2x.png"; sourceTree = "<group>"; };
 		439BBB591C14E0450070CCBB /* BlocQuery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlocQuery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		439BBB5D1C14E0450070CCBB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		439BBB5F1C14E0450070CCBB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -116,8 +123,12 @@
 		439BBB5B1C14E0450070CCBB /* BlocQuery */ = {
 			isa = PBXGroup;
 			children = (
+				4368D1E21C18B0A3003B7D61 /* BlocQuery.png */,
+				4368D1E31C18B0A3003B7D61 /* BlocQuery@2x.png */,
 				439BBB5F1C14E0450070CCBB /* AppDelegate.h */,
 				439BBB601C14E0450070CCBB /* AppDelegate.m */,
+				432BB32E1C17680500ED7148 /* LoginViewController.h */,
+				432BB32F1C17680500ED7148 /* LoginViewController.m */,
 				439BBB621C14E0450070CCBB /* ViewController.h */,
 				439BBB631C14E0450070CCBB /* ViewController.m */,
 				439BBB651C14E0450070CCBB /* Main.storyboard */,
@@ -273,6 +284,8 @@
 			files = (
 				439BBB6C1C14E0450070CCBB /* LaunchScreen.storyboard in Resources */,
 				439BBB691C14E0450070CCBB /* Assets.xcassets in Resources */,
+				4368D1E41C18B0A3003B7D61 /* BlocQuery.png in Resources */,
+				4368D1E51C18B0A3003B7D61 /* BlocQuery@2x.png in Resources */,
 				439BBB671C14E0450070CCBB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,6 +359,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				432BB3301C17680500ED7148 /* LoginViewController.m in Sources */,
 				439BBB641C14E0450070CCBB /* ViewController.m in Sources */,
 				439BBB611C14E0450070CCBB /* AppDelegate.m in Sources */,
 				439BBB5E1C14E0450070CCBB /* main.m in Sources */,
@@ -492,6 +506,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = BlocQuery/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = melbo.co.BlocQuery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -505,6 +520,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = BlocQuery/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = melbo.co.BlocQuery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
