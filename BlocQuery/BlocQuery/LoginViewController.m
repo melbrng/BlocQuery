@@ -29,7 +29,6 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    NSLog(@"viewDidAppear");
     self.logInController = [[PFLogInViewController alloc] init];
     self.logInController.delegate = self;
     
@@ -62,6 +61,9 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     self.viewController = [storyboard instantiateViewControllerWithIdentifier:@"MyNewView"];
     
+    //send the username
+    [self.delegate loginViewControllerValue:self.logInController.logInView.usernameField.text];
+    
     [self.navigationController pushViewController:self.viewController animated:YES];
     
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -76,7 +78,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - SignUp Delegates

@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController 
+
 @property (weak, nonatomic) IBOutlet UITextField *successTextField;
 
 
