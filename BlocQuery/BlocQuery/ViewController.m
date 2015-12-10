@@ -19,8 +19,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.successTextField.text = [NSString stringWithFormat:@"Welcome %@",self.username ];
 
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -33,5 +36,6 @@
     testObject[@"foo"] = @"bar";
     [testObject saveInBackground];
 }
+
 
 @end

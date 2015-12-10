@@ -10,6 +10,6 @@
 #import <ParseUI/ParseUI.h>
 #import "LoginViewController.h"
 
-@interface QuestionsViewController : PFQueryTableViewController <LoginViewDelegate>
+@interface QuestionsViewController : PFQueryTableViewController
 
 @end

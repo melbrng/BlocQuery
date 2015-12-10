@@ -53,17 +53,21 @@
     
 }
 
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+}
+
 #pragma mark - LogIn Delegates
 
 - (void)logInViewController:(PFLogInViewController *)controller
                didLogInUser:(PFUser *)user
 {
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     self.viewController = [storyboard instantiateViewControllerWithIdentifier:@"MyNewView"];
-    
-    //send the username
-    [self.delegate loginViewControllerValue:self.logInController.logInView.usernameField.text];
-    
+    NSString *loginUsername = self.logInController.logInView.usernameField.text;
+    self.viewController.username = loginUsername;
     [self.navigationController pushViewController:self.viewController animated:YES];
     
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -76,33 +80,9 @@
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
+
 
 #pragma mark - SignUp Delegates
-
-- (void)signUpTestUser {
-    PFUser *user = [PFUser user];
-    user.username = @"charlie";
-    user.password = @"password";
-    user.email = @"charlie@example.com";
-    
-    // other fields can be set just like with PFObject
-    user[@"phone"] = @"415-392-0202";
-    
-    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
-    {
-        if (!error)
-        {   // Hooray! Let them use the app now.
-        
-        }
-        else
-        {
-            NSString *errorString = [error userInfo][@"error"];
-        }
-    }];
-}
 
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user
 {

@@ -126,16 +126,10 @@
 		439BBB5B1C14E0450070CCBB /* BlocQuery */ = {
 			isa = PBXGroup;
 			children = (
-				4368D1E21C18B0A3003B7D61 /* BlocQuery.png */,
-				4368D1E31C18B0A3003B7D61 /* BlocQuery@2x.png */,
+				43EE70F01C19F98300E66152 /* Images */,
 				439BBB5F1C14E0450070CCBB /* AppDelegate.h */,
 				439BBB601C14E0450070CCBB /* AppDelegate.m */,
-				432BB32E1C17680500ED7148 /* LoginViewController.h */,
-				432BB32F1C17680500ED7148 /* LoginViewController.m */,
-				439BBB621C14E0450070CCBB /* ViewController.h */,
-				439BBB631C14E0450070CCBB /* ViewController.m */,
-				4368D1E61C18EA08003B7D61 /* QuestionsViewController.h */,
-				4368D1E71C18EA08003B7D61 /* QuestionsViewController.m */,
+				43EE70F11C19F9A700E66152 /* Controller */,
 				439BBB651C14E0450070CCBB /* Main.storyboard */,
 				439BBB681C14E0450070CCBB /* Assets.xcassets */,
 				439BBB6A1C14E0450070CCBB /* LaunchScreen.storyboard */,
@@ -169,6 +163,28 @@
 				439BBB831C14E0450070CCBB /* Info.plist */,
 			);
 			path = BlocQueryUITests;
+			sourceTree = "<group>";
+		};
+		43EE70F01C19F98300E66152 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				4368D1E21C18B0A3003B7D61 /* BlocQuery.png */,
+				4368D1E31C18B0A3003B7D61 /* BlocQuery@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		43EE70F11C19F9A700E66152 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				432BB32E1C17680500ED7148 /* LoginViewController.h */,
+				432BB32F1C17680500ED7148 /* LoginViewController.m */,
+				439BBB621C14E0450070CCBB /* ViewController.h */,
+				439BBB631C14E0450070CCBB /* ViewController.m */,
+				4368D1E61C18EA08003B7D61 /* QuestionsViewController.h */,
+				4368D1E71C18EA08003B7D61 /* QuestionsViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		9EBDF93442186B61A56D6A98 /* Pods */ = {
