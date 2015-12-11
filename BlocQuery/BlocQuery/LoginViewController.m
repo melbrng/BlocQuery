@@ -10,11 +10,13 @@
 #import "PFObject.h"
 #import "PFUser.h"
 #import "ViewController.h"
+#import "QuestionsViewController.h"
 
 @interface LoginViewController ()
 
 @property (strong,nonatomic) PFLogInViewController *logInController;
 @property (strong,nonatomic) ViewController *viewController;
+@property (strong,nonatomic) QuestionsViewController *questionsController;
 
 @end
 
@@ -65,10 +67,16 @@
 {
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    self.viewController = [storyboard instantiateViewControllerWithIdentifier:@"MyNewView"];
+//    self.viewController = [storyboard instantiateViewControllerWithIdentifier:@"QuestionsView"];
+//    NSString *loginUsername = self.logInController.logInView.usernameField.text;
+//    self.viewController.username = loginUsername;
+//    [self.navigationController pushViewController:self.viewController animated:YES];
+    
+    self.questionsController = [storyboard instantiateViewControllerWithIdentifier:@"QuestionsView"];
     NSString *loginUsername = self.logInController.logInView.usernameField.text;
-    self.viewController.username = loginUsername;
-    [self.navigationController pushViewController:self.viewController animated:YES];
+    self.questionsController.username = loginUsername;
+
+    [self.navigationController pushViewController:self.questionsController animated:YES];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }

@@ -10,10 +10,11 @@
 #import "PFQuery.h"
 
 @interface QuestionsViewController ()
-@property (strong,nonatomic) NSString *username;
+
 @end
 
 @implementation QuestionsViewController
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -21,8 +22,8 @@
     
     if (self) {
  
-        // The className to query on
-        self.parseClassName = @"foo";
+       //  The className to query on
+        self.parseClassName = @"TestObject";
         
         // The key of the PFObject to display in the label of the default cell style
         self.textKey = @"text";
@@ -42,16 +43,11 @@
     return self;
 }
 
-//set the username
--(void)loginViewControllerValue:(NSString *)username
-{
-    self.username = username;
-}
 
 - (PFQuery *)queryForTable
 {
-    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-    
+    PFQuery *query = [PFQuery queryWithClassName:@"TestObject"];
+
     // If no objects are loaded in memory, we look to the cache first to fill the table
     // and then subsequently do a query against the network.
     if (self.objects.count == 0)
@@ -64,27 +60,47 @@
     return query;
 }
 
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.objects.count;
+}
+
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+//    
+//    NSDate *object = self.objects[indexPath.row];
+//    cell.textLabel.text = [object description];
+//    return cell;
+//}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
-                        object:(PFObject *)object {
-    static NSString *cellIdentifier = @"cell";
-    
-    PFTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (!cell) {
-        cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                      reuseIdentifier:cellIdentifier];
+                        object:(PFObject *)object
+    {
+        static NSString *cellIdentifier = @"cell";
+
+        PFTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        if (!cell) {
+            cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                          reuseIdentifier:cellIdentifier];
     }
     
     // Configure the cell to show todo item with a priority at the bottom
     cell.textLabel.text = object[@"text"];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Priority: %@",  object[@"priority"]];
-    
+//    cell.detailTextLabel.text = [NSString stringWithFormat:@"Priority: %@",  object[@"priority"]];
+
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
 
