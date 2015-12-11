@@ -40,12 +40,6 @@
                                    | PFLogInFieldsPasswordForgotten
                                    | PFLogInFieldsDismissButton);
     
-    //    UIImage *logo = [UIImage imageNamed:@"BlocQuery.png"];
-    //    UIImageView *logoView =[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, logo.size.width, logo.size.height)];
-    //    [logoView setImage:logo];
-    //
-    //    self.logInController.logInView.logo = logoView; // logo can be any UIView
-    
     PFSignUpViewController *signUpController = [[PFSignUpViewController alloc]init];
     signUpController.delegate = self;
     self.logInController.signUpController = signUpController;
@@ -67,10 +61,6 @@
 {
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-//    self.viewController = [storyboard instantiateViewControllerWithIdentifier:@"QuestionsView"];
-//    NSString *loginUsername = self.logInController.logInView.usernameField.text;
-//    self.viewController.username = loginUsername;
-//    [self.navigationController pushViewController:self.viewController animated:YES];
     
     self.questionsController = [storyboard instantiateViewControllerWithIdentifier:@"QuestionsView"];
     NSString *loginUsername = self.logInController.logInView.usernameField.text;
@@ -103,14 +93,5 @@
 }
 
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

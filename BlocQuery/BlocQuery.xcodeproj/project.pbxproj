@@ -8,15 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		432BB3301C17680500ED7148 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 432BB32F1C17680500ED7148 /* LoginViewController.m */; };
-		432C25791C1A282A003133A5 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 432C25781C1A282A003133A5 /* Question.m */; };
-		432C257D1C1A2BC3003133A5 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 432C257C1C1A2BC3003133A5 /* User.m */; };
-		432C25801C1A32CF003133A5 /* Asking.m in Sources */ = {isa = PBXBuildFile; fileRef = 432C257F1C1A32CF003133A5 /* Asking.m */; };
 		4368D1E41C18B0A3003B7D61 /* BlocQuery.png in Resources */ = {isa = PBXBuildFile; fileRef = 4368D1E21C18B0A3003B7D61 /* BlocQuery.png */; };
 		4368D1E51C18B0A3003B7D61 /* BlocQuery@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4368D1E31C18B0A3003B7D61 /* BlocQuery@2x.png */; };
 		4368D1E81C18EA08003B7D61 /* QuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4368D1E71C18EA08003B7D61 /* QuestionsViewController.m */; };
 		439BBB5E1C14E0450070CCBB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 439BBB5D1C14E0450070CCBB /* main.m */; };
 		439BBB611C14E0450070CCBB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 439BBB601C14E0450070CCBB /* AppDelegate.m */; };
-		439BBB641C14E0450070CCBB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 439BBB631C14E0450070CCBB /* ViewController.m */; };
 		439BBB671C14E0450070CCBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 439BBB651C14E0450070CCBB /* Main.storyboard */; };
 		439BBB691C14E0450070CCBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 439BBB681C14E0450070CCBB /* Assets.xcassets */; };
 		439BBB6C1C14E0450070CCBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 439BBB6A1C14E0450070CCBB /* LaunchScreen.storyboard */; };
@@ -46,12 +42,6 @@
 		095DCDBAFDB9A7D39C4E7E5E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		432BB32E1C17680500ED7148 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		432BB32F1C17680500ED7148 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		432C25771C1A282A003133A5 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
-		432C25781C1A282A003133A5 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
-		432C257B1C1A2BC3003133A5 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		432C257C1C1A2BC3003133A5 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		432C257E1C1A32CF003133A5 /* Asking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Asking.h; sourceTree = "<group>"; };
-		432C257F1C1A32CF003133A5 /* Asking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Asking.m; sourceTree = "<group>"; };
 		4368D1E21C18B0A3003B7D61 /* BlocQuery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlocQuery.png; sourceTree = "<group>"; };
 		4368D1E31C18B0A3003B7D61 /* BlocQuery@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BlocQuery@2x.png"; sourceTree = "<group>"; };
 		4368D1E61C18EA08003B7D61 /* QuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionsViewController.h; sourceTree = "<group>"; };
@@ -60,8 +50,6 @@
 		439BBB5D1C14E0450070CCBB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		439BBB5F1C14E0450070CCBB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		439BBB601C14E0450070CCBB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		439BBB621C14E0450070CCBB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		439BBB631C14E0450070CCBB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		439BBB661C14E0450070CCBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		439BBB681C14E0450070CCBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		439BBB6B1C14E0450070CCBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -110,19 +98,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		432C257A1C1A282F003133A5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				432C257B1C1A2BC3003133A5 /* User.h */,
-				432C257C1C1A2BC3003133A5 /* User.m */,
-				432C25771C1A282A003133A5 /* Question.h */,
-				432C25781C1A282A003133A5 /* Question.m */,
-				432C257E1C1A32CF003133A5 /* Asking.h */,
-				432C257F1C1A32CF003133A5 /* Asking.m */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
 		439BBB501C14E0450070CCBB = {
 			isa = PBXGroup;
 			children = (
@@ -150,7 +125,6 @@
 			children = (
 				439BBB5F1C14E0450070CCBB /* AppDelegate.h */,
 				439BBB601C14E0450070CCBB /* AppDelegate.m */,
-				432C257A1C1A282F003133A5 /* Model */,
 				43EE70F11C19F9A700E66152 /* Controller */,
 				439BBB651C14E0450070CCBB /* Main.storyboard */,
 				439BBB681C14E0450070CCBB /* Assets.xcassets */,
@@ -202,8 +176,6 @@
 			children = (
 				432BB32E1C17680500ED7148 /* LoginViewController.h */,
 				432BB32F1C17680500ED7148 /* LoginViewController.m */,
-				439BBB621C14E0450070CCBB /* ViewController.h */,
-				439BBB631C14E0450070CCBB /* ViewController.m */,
 				4368D1E61C18EA08003B7D61 /* QuestionsViewController.h */,
 				4368D1E71C18EA08003B7D61 /* QuestionsViewController.m */,
 			);
@@ -404,11 +376,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				432BB3301C17680500ED7148 /* LoginViewController.m in Sources */,
-				432C257D1C1A2BC3003133A5 /* User.m in Sources */,
-				432C25801C1A32CF003133A5 /* Asking.m in Sources */,
 				4368D1E81C18EA08003B7D61 /* QuestionsViewController.m in Sources */,
-				439BBB641C14E0450070CCBB /* ViewController.m in Sources */,
-				432C25791C1A282A003133A5 /* Question.m in Sources */,
 				439BBB611C14E0450070CCBB /* AppDelegate.m in Sources */,
 				439BBB5E1C14E0450070CCBB /* main.m in Sources */,
 			);
