@@ -9,13 +9,11 @@
 #import "LoginViewController.h"
 #import "PFObject.h"
 #import "PFUser.h"
-#import "ViewController.h"
 #import "QuestionsViewController.h"
 
 @interface LoginViewController ()
 
 @property (strong,nonatomic) PFLogInViewController *logInController;
-@property (strong,nonatomic) ViewController *viewController;
 @property (strong,nonatomic) QuestionsViewController *questionsController;
 
 @end
