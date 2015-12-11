@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		432BB3301C17680500ED7148 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 432BB32F1C17680500ED7148 /* LoginViewController.m */; };
+		432C25791C1A282A003133A5 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 432C25781C1A282A003133A5 /* Question.m */; };
+		432C257D1C1A2BC3003133A5 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 432C257C1C1A2BC3003133A5 /* User.m */; };
+		432C25801C1A32CF003133A5 /* Asking.m in Sources */ = {isa = PBXBuildFile; fileRef = 432C257F1C1A32CF003133A5 /* Asking.m */; };
+		4368D1E41C18B0A3003B7D61 /* BlocQuery.png in Resources */ = {isa = PBXBuildFile; fileRef = 4368D1E21C18B0A3003B7D61 /* BlocQuery.png */; };
+		4368D1E51C18B0A3003B7D61 /* BlocQuery@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4368D1E31C18B0A3003B7D61 /* BlocQuery@2x.png */; };
+		4368D1E81C18EA08003B7D61 /* QuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4368D1E71C18EA08003B7D61 /* QuestionsViewController.m */; };
 		439BBB5E1C14E0450070CCBB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 439BBB5D1C14E0450070CCBB /* main.m */; };
 		439BBB611C14E0450070CCBB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 439BBB601C14E0450070CCBB /* AppDelegate.m */; };
 		439BBB641C14E0450070CCBB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 439BBB631C14E0450070CCBB /* ViewController.m */; };
@@ -37,6 +44,18 @@
 
 /* Begin PBXFileReference section */
 		095DCDBAFDB9A7D39C4E7E5E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		432BB32E1C17680500ED7148 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		432BB32F1C17680500ED7148 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		432C25771C1A282A003133A5 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		432C25781C1A282A003133A5 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		432C257B1C1A2BC3003133A5 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		432C257C1C1A2BC3003133A5 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		432C257E1C1A32CF003133A5 /* Asking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Asking.h; sourceTree = "<group>"; };
+		432C257F1C1A32CF003133A5 /* Asking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Asking.m; sourceTree = "<group>"; };
+		4368D1E21C18B0A3003B7D61 /* BlocQuery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlocQuery.png; sourceTree = "<group>"; };
+		4368D1E31C18B0A3003B7D61 /* BlocQuery@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BlocQuery@2x.png"; sourceTree = "<group>"; };
+		4368D1E61C18EA08003B7D61 /* QuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionsViewController.h; sourceTree = "<group>"; };
+		4368D1E71C18EA08003B7D61 /* QuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionsViewController.m; sourceTree = "<group>"; };
 		439BBB591C14E0450070CCBB /* BlocQuery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlocQuery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		439BBB5D1C14E0450070CCBB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		439BBB5F1C14E0450070CCBB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -91,6 +110,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		432C257A1C1A282F003133A5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				432C257B1C1A2BC3003133A5 /* User.h */,
+				432C257C1C1A2BC3003133A5 /* User.m */,
+				432C25771C1A282A003133A5 /* Question.h */,
+				432C25781C1A282A003133A5 /* Question.m */,
+				432C257E1C1A32CF003133A5 /* Asking.h */,
+				432C257F1C1A32CF003133A5 /* Asking.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		439BBB501C14E0450070CCBB = {
 			isa = PBXGroup;
 			children = (
@@ -118,8 +150,8 @@
 			children = (
 				439BBB5F1C14E0450070CCBB /* AppDelegate.h */,
 				439BBB601C14E0450070CCBB /* AppDelegate.m */,
-				439BBB621C14E0450070CCBB /* ViewController.h */,
-				439BBB631C14E0450070CCBB /* ViewController.m */,
+				432C257A1C1A282F003133A5 /* Model */,
+				43EE70F11C19F9A700E66152 /* Controller */,
 				439BBB651C14E0450070CCBB /* Main.storyboard */,
 				439BBB681C14E0450070CCBB /* Assets.xcassets */,
 				439BBB6A1C14E0450070CCBB /* LaunchScreen.storyboard */,
@@ -132,6 +164,7 @@
 		439BBB5C1C14E0450070CCBB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				43EE70F01C19F98300E66152 /* Images */,
 				439BBB5D1C14E0450070CCBB /* main.m */,
 			);
 			name = "Supporting Files";
@@ -153,6 +186,28 @@
 				439BBB831C14E0450070CCBB /* Info.plist */,
 			);
 			path = BlocQueryUITests;
+			sourceTree = "<group>";
+		};
+		43EE70F01C19F98300E66152 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				4368D1E21C18B0A3003B7D61 /* BlocQuery.png */,
+				4368D1E31C18B0A3003B7D61 /* BlocQuery@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		43EE70F11C19F9A700E66152 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				432BB32E1C17680500ED7148 /* LoginViewController.h */,
+				432BB32F1C17680500ED7148 /* LoginViewController.m */,
+				439BBB621C14E0450070CCBB /* ViewController.h */,
+				439BBB631C14E0450070CCBB /* ViewController.m */,
+				4368D1E61C18EA08003B7D61 /* QuestionsViewController.h */,
+				4368D1E71C18EA08003B7D61 /* QuestionsViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		9EBDF93442186B61A56D6A98 /* Pods */ = {
@@ -273,6 +328,8 @@
 			files = (
 				439BBB6C1C14E0450070CCBB /* LaunchScreen.storyboard in Resources */,
 				439BBB691C14E0450070CCBB /* Assets.xcassets in Resources */,
+				4368D1E41C18B0A3003B7D61 /* BlocQuery.png in Resources */,
+				4368D1E51C18B0A3003B7D61 /* BlocQuery@2x.png in Resources */,
 				439BBB671C14E0450070CCBB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,7 +403,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				432BB3301C17680500ED7148 /* LoginViewController.m in Sources */,
+				432C257D1C1A2BC3003133A5 /* User.m in Sources */,
+				432C25801C1A32CF003133A5 /* Asking.m in Sources */,
+				4368D1E81C18EA08003B7D61 /* QuestionsViewController.m in Sources */,
 				439BBB641C14E0450070CCBB /* ViewController.m in Sources */,
+				432C25791C1A282A003133A5 /* Question.m in Sources */,
 				439BBB611C14E0450070CCBB /* AppDelegate.m in Sources */,
 				439BBB5E1C14E0450070CCBB /* main.m in Sources */,
 			);
@@ -492,6 +554,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = BlocQuery/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = melbo.co.BlocQuery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -505,6 +568,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = BlocQuery/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = melbo.co.BlocQuery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
