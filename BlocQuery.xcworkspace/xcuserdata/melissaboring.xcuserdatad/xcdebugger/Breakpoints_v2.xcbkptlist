@@ -15,11 +15,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
             endingLineNumber = "25"
-<<<<<<< HEAD
-            landmarkName = "-didReceiveMemoryWarning"
-=======
             landmarkName = "-viewDidLoad"
->>>>>>> user-story-1-account
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
