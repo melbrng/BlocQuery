@@ -11,7 +11,7 @@
 		432C25791C1A282A003133A5 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 432C25781C1A282A003133A5 /* Question.m */; };
 		432C257D1C1A2BC3003133A5 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 432C257C1C1A2BC3003133A5 /* User.m */; };
 		432C25801C1A32CF003133A5 /* Asking.m in Sources */ = {isa = PBXBuildFile; fileRef = 432C257F1C1A32CF003133A5 /* Asking.m */; };
-		432C25C41C1B7C05003133A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 432C25C31C1B7C05003133A5 /* Main.storyboard */; };
+		432C25C71C1B83F7003133A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 432C25C51C1B83F7003133A5 /* Main.storyboard */; };
 		4368D1E41C18B0A3003B7D61 /* BlocQuery.png in Resources */ = {isa = PBXBuildFile; fileRef = 4368D1E21C18B0A3003B7D61 /* BlocQuery.png */; };
 		4368D1E51C18B0A3003B7D61 /* BlocQuery@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4368D1E31C18B0A3003B7D61 /* BlocQuery@2x.png */; };
 		4368D1E81C18EA08003B7D61 /* QuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4368D1E71C18EA08003B7D61 /* QuestionsViewController.m */; };
@@ -52,7 +52,7 @@
 		432C257C1C1A2BC3003133A5 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		432C257E1C1A32CF003133A5 /* Asking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Asking.h; sourceTree = "<group>"; };
 		432C257F1C1A32CF003133A5 /* Asking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Asking.m; sourceTree = "<group>"; };
-		432C25C31C1B7C05003133A5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		432C25C61C1B83F7003133A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4368D1E21C18B0A3003B7D61 /* BlocQuery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlocQuery.png; sourceTree = "<group>"; };
 		4368D1E31C18B0A3003B7D61 /* BlocQuery@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BlocQuery@2x.png"; sourceTree = "<group>"; };
 		4368D1E61C18EA08003B7D61 /* QuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionsViewController.h; sourceTree = "<group>"; };
@@ -148,6 +148,7 @@
 		439BBB5B1C14E0450070CCBB /* BlocQuery */ = {
 			isa = PBXGroup;
 			children = (
+				432C25C51C1B83F7003133A5 /* Main.storyboard */,
 				439BBB5F1C14E0450070CCBB /* AppDelegate.h */,
 				439BBB601C14E0450070CCBB /* AppDelegate.m */,
 				432C257A1C1A282F003133A5 /* Model */,
@@ -156,7 +157,6 @@
 				439BBB6A1C14E0450070CCBB /* LaunchScreen.storyboard */,
 				439BBB6D1C14E0450070CCBB /* Info.plist */,
 				439BBB5C1C14E0450070CCBB /* Supporting Files */,
-				432C25C31C1B7C05003133A5 /* Main.storyboard */,
 			);
 			path = BlocQuery;
 			sourceTree = "<group>";
@@ -327,7 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				439BBB6C1C14E0450070CCBB /* LaunchScreen.storyboard in Resources */,
-				432C25C41C1B7C05003133A5 /* Main.storyboard in Resources */,
+				432C25C71C1B83F7003133A5 /* Main.storyboard in Resources */,
 				439BBB691C14E0450070CCBB /* Assets.xcassets in Resources */,
 				4368D1E41C18B0A3003B7D61 /* BlocQuery.png in Resources */,
 				4368D1E51C18B0A3003B7D61 /* BlocQuery@2x.png in Resources */,
@@ -446,6 +446,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		432C25C51C1B83F7003133A5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				432C25C61C1B83F7003133A5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		439BBB6A1C14E0450070CCBB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
