@@ -16,18 +16,18 @@
 
 @implementation QuestionsViewController
 
-
-- (id)initWithStyle:(UITableViewStyle)style
+//Storyboard
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithStyle:style];
+    self = [super initWithCoder:aDecoder];
     
     if (self) {
  
        //  The className to query on
-        self.parseClassName = @"TestObject";
+        self.parseClassName = @"Question";
         
         // The key of the PFObject to display in the label of the default cell style
-        self.textKey = @"text";
+        self.textKey = @"questionText";
         
         // Uncomment the following line to specify the key of a PFFile on the PFObject to display in the imageView of the default cell style
         // self.imageKey = @"image";
@@ -44,17 +44,17 @@
     return self;
 }
 
--(void)viewDidLoad
-{
-    
-    self.title = @"Bloquery";
-    
- 
-}
+//-(void)viewDidLoad
+//{
+//    
+//    self.title = @"Bloquery";
+//    
+// 
+//}
 
 - (PFQuery *)queryForTable
 {
-    PFQuery *query = [PFQuery queryWithClassName:@"Question"];
+    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
 
     // If no objects are loaded in memory, we look to the cache first to fill the table
     // and then subsequently do a query against the network.
@@ -92,7 +92,7 @@
     }
     
     // Configure the cell to show todo item with a priority at the bottom
-    cell.textLabel.text = object[@"questionText"];
+    cell.textLabel.text = object[self.textKey];
 //    cell.detailTextLabel.text = [NSString stringWithFormat:@"Priority: %@",  object[@"priority"]];
 
     return cell;
