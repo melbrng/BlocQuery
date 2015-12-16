@@ -10,7 +10,7 @@
 
 @interface QuestionViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextField *questionTextField;
+@property (weak, nonatomic) IBOutlet UITextView *questionTextView;
 
 @end
 
@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.questionTextField.text = self.questionText;
+    self.questionTextView.text = self.questionText;
 }
 
 - (void)didReceiveMemoryWarning {

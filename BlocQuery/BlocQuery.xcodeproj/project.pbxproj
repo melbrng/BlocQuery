@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		430B25DF1C22117C004DE173 /* AddQuestionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 430B25DE1C22117C004DE173 /* AddQuestionTest.m */; };
+		430B25E31C22143C004DE173 /* libParse.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 430B25E21C22143C004DE173 /* libParse.a */; };
 		432BB3301C17680500ED7148 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 432BB32F1C17680500ED7148 /* LoginViewController.m */; };
 		432C25C71C1B83F7003133A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 432C25C51C1B83F7003133A5 /* Main.storyboard */; };
 		4368D1E41C18B0A3003B7D61 /* BlocQuery.png in Resources */ = {isa = PBXBuildFile; fileRef = 4368D1E21C18B0A3003B7D61 /* BlocQuery.png */; };
@@ -42,6 +44,10 @@
 
 /* Begin PBXFileReference section */
 		095DCDBAFDB9A7D39C4E7E5E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		430B25DE1C22117C004DE173 /* AddQuestionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddQuestionTest.m; sourceTree = "<group>"; };
+		430B25E01C221420004DE173 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "/Users/melissaboring/work/BlocQuery/Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<absolute>"; };
+		430B25E21C22143C004DE173 /* libParse.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libParse.a; path = "/Users/melissaboring/work/BlocQuery/Pods/../build/Debug-iphoneos/libParse.a"; sourceTree = "<absolute>"; };
+		430B25E41C22167C004DE173 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "/Users/melissaboring/work/BlocQuery/Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<absolute>"; };
 		432BB32E1C17680500ED7148 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		432BB32F1C17680500ED7148 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		432C25C61C1B83F7003133A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -83,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				430B25E31C22143C004DE173 /* libParse.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +106,9 @@
 		3D22B94971457C23D1DE64ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				430B25E41C22167C004DE173 /* libPods.a */,
+				430B25E21C22143C004DE173 /* libParse.a */,
+				430B25E01C221420004DE173 /* libPods.a */,
 				BD061FD6615BD1F3E70A413F /* libPods.a */,
 			);
 			name = Frameworks;
@@ -155,6 +165,7 @@
 		439BBB751C14E0450070CCBB /* BlocQueryTests */ = {
 			isa = PBXGroup;
 			children = (
+				430B25DE1C22117C004DE173 /* AddQuestionTest.m */,
 				439BBB761C14E0450070CCBB /* BlocQueryTests.m */,
 				439BBB781C14E0450070CCBB /* Info.plist */,
 			);
@@ -399,6 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				439BBB771C14E0450070CCBB /* BlocQueryTests.m in Sources */,
+				430B25DF1C22117C004DE173 /* AddQuestionTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,7 +569,9 @@
 		};
 		439BBB8A1C14E0450070CCBB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B3FB4FCB01AC2A5A3BC7024 /* Pods.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = BlocQueryTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -569,7 +583,9 @@
 		};
 		439BBB8B1C14E0450070CCBB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 095DCDBAFDB9A7D39C4E7E5E /* Pods.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = BlocQueryTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
