@@ -9,6 +9,7 @@
 #import "QuestionsViewController.h"
 #import "PFQuery.h"
 
+
 @interface QuestionsViewController ()
 
 @end
@@ -43,10 +44,17 @@
     return self;
 }
 
+-(void)viewDidLoad
+{
+    
+    self.title = @"Bloquery";
+    
+ 
+}
 
 - (PFQuery *)queryForTable
 {
-    PFQuery *query = [PFQuery queryWithClassName:@"TestObject"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Question"];
 
     // If no objects are loaded in memory, we look to the cache first to fill the table
     // and then subsequently do a query against the network.
@@ -75,7 +83,7 @@
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
                         object:(PFObject *)object
     {
-        static NSString *cellIdentifier = @"cell";
+        static NSString *cellIdentifier = @"QuestionCell";
 
         PFTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
         if (!cell) {
@@ -84,7 +92,7 @@
     }
     
     // Configure the cell to show todo item with a priority at the bottom
-    cell.textLabel.text = object[@"text"];
+    cell.textLabel.text = object[@"questionText"];
 //    cell.detailTextLabel.text = [NSString stringWithFormat:@"Priority: %@",  object[@"priority"]];
 
     return cell;

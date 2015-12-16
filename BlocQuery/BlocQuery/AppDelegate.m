@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import <Parse/Parse.h>
 
+
 @interface AppDelegate ()
 
 @end
@@ -24,6 +25,8 @@
     
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     UINavigationController *navigationVC = [[UINavigationController alloc]init];

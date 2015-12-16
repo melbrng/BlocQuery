@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="010-Pw-T0d" id="nSM-hX-bOY">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
@@ -28,14 +28,14 @@
                         </prototypes>
                         <sections/>
                         <connections>
-                            <outlet property="dataSource" destination="fef-41-Jmu" id="MPM-qC-1FG"/>
-                            <outlet property="delegate" destination="fef-41-Jmu" id="7VP-vD-u4Z"/>
+                            <outlet property="dataSource" destination="fef-41-Jmu" id="KBL-cg-kx7"/>
+                            <outlet property="delegate" destination="fef-41-Jmu" id="KoA-w8-cyd"/>
                         </connections>
                     </tableView>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PwM-tY-qxk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="355" y="889"/>
+            <point key="canvasLocation" x="319" y="497"/>
         </scene>
     </scenes>
 </document>
