@@ -79,11 +79,15 @@
 //        [self signUpUser:user1];
 //    }
 
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"username" equalTo:@"testUser1"]; // find all the women
+    NSArray *users = [query findObjects];
+    
     
     PFObject *questionObject = [PFObject objectWithClassName:@"Question"];
     
-    questionObject[@"questionText"] = @"How long will the sun be out in June?";
-    questionObject[@"user"] = [PFUser currentUser];
+    questionObject[@"questionText"] = @"Does Quora Really Have All the Answers?";
+    questionObject[@"user"] = [users objectAtIndex:0];
 
     [questionObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {

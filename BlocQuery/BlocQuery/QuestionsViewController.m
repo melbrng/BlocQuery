@@ -7,8 +7,9 @@
 //
 
 #import "QuestionsViewController.h"
+#import "QuestionViewController.h"
 #import "PFQuery.h"
-
+#import "Datasource.h"
 
 @interface QuestionsViewController ()
 
@@ -40,20 +41,18 @@
         
         // The number of objects to show per page
         self.objectsPerPage = 25;
+        
+        self.title = @"Bloquery";
+        
+        
     }
     return self;
 }
 
-//-(void)viewDidLoad
-//{
-//    
-//    self.title = @"Bloquery";
-//    
-// 
-//}
 
 - (PFQuery *)queryForTable
 {
+    
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
 
     // If no objects are loaded in memory, we look to the cache first to fill the table
@@ -74,7 +73,8 @@
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return self.objects.count;
 }
 
@@ -100,9 +100,31 @@
 
 #pragma mark - UITableViewDelegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+//    
+//    PFObject *question = [self.objects objectAtIndex:indexPath.row];
+//    
+//    QuestionViewController *questionController = [[QuestionViewController alloc] init];
+//    questionController.questionText = question[self.textKey];
+//    
+//    self prepareForSegue:<#(nonnull UIStoryboardSegue *)#> sender:<#(nullable id)#>
+//    
+//   // [[self navigationController] pushViewController:questionController animated:YES];
+//}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    if ([[segue identifier] isEqualToString:@"showQuestion"])
+    {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        PFObject *question = [self.objects objectAtIndex:indexPath.row];
+
+        QuestionViewController *questionController = [segue destinationViewController];
+        questionController.questionText = question[self.textKey];
+        
+    }
 }
 
 
