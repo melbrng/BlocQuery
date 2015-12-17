@@ -86,33 +86,18 @@
         static NSString *cellIdentifier = @"QuestionCell";
 
         PFTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        if (!cell) {
+        if (!cell)
+        {
             cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                           reuseIdentifier:cellIdentifier];
-    }
+        }
     
-    // Configure the cell to show todo item with a priority at the bottom
     cell.textLabel.text = object[self.textKey];
-//    cell.detailTextLabel.text = [NSString stringWithFormat:@"Priority: %@",  object[@"priority"]];
+//    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",  object[@"priority"]];
 
     return cell;
 }
 
-#pragma mark - UITableViewDelegate
-
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
-//    
-//    PFObject *question = [self.objects objectAtIndex:indexPath.row];
-//    
-//    QuestionViewController *questionController = [[QuestionViewController alloc] init];
-//    questionController.questionText = question[self.textKey];
-//    
-//    self prepareForSegue:<#(nonnull UIStoryboardSegue *)#> sender:<#(nullable id)#>
-//    
-//   // [[self navigationController] pushViewController:questionController animated:YES];
-//}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

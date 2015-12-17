@@ -26,8 +26,6 @@
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
-
-    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     UINavigationController *navigationVC = [[UINavigationController alloc]init];
     self.window.rootViewController = navigationVC;

@@ -34,9 +34,8 @@
     
     //get testUser1
     PFQuery *query = [PFUser query];
-    [query whereKey:@"username" equalTo:@"testUser1"]; // find all the women
+    [query whereKey:@"username" equalTo:@"testUser1"];
     NSArray *users = [query findObjects];
-    
     
     PFObject *questionObject = [PFObject objectWithClassName:@"Question"];
     
@@ -44,19 +43,23 @@
     questionObject[@"user"] = [users objectAtIndex:0];
     
     [questionObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            // The object has been saved.
-        } else {
-            // There was a problem, check error.description
+        
+        if (succeeded)
+        {
+            NSLog(@"Successful save");
+        }
+        else
+        {
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
 }
 
 - (void)testQuestionForTestUser2 {
     
-    //get testUser1
+    //get testUser2
     PFQuery *query = [PFUser query];
-    [query whereKey:@"username" equalTo:@"testUser2"]; // find all the women
+    [query whereKey:@"username" equalTo:@"testUser2"];
     NSArray *users = [query findObjects];
     
     
@@ -66,10 +69,14 @@
     questionObject[@"user"] = [users objectAtIndex:0];
     
     [questionObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            // The object has been saved.
-        } else {
-            // There was a problem, check error.description
+        
+        if (succeeded)
+        {
+            NSLog(@"Successful save");
+        }
+        else
+        {
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
 }
