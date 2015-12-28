@@ -7,6 +7,8 @@
 //
 
 #import "QuestionViewController.h"
+#import "AnswerViewController.h"
+
 
 @interface QuestionViewController ()
 
@@ -20,13 +22,37 @@
 {
     [super viewDidLoad];
     
-    self.questionTextView.text = self.questionText;
+    self.navigationController.navigationBar.topItem.title = @"Questions";
+
+//    UIBarButtonItem *addAnswerButton = [[UIBarButtonItem alloc]
+//                                   initWithTitle:@"Answer"
+//                                   style:UIBarButtonItemStylePlain
+//                                   target:self
+//                                   action:@selector(addAnswer:)];
+//    
+//    self.navigationItem.rightBarButtonItem = addAnswerButton;
+    self.questionTextView.text = self.question[@"questionText"];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
    
+}
+- (IBAction)addAnswer:(id)sender
+{
+    NSLog(@"Answering");
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"addAnswer"])
+    {
+        
+        AnswerViewController *answerController = [segue destinationViewController];
+        answerController.question = self.question;
+        
+    }
 }
 
 

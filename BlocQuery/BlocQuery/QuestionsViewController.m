@@ -50,6 +50,7 @@
 }
 
 
+
 - (PFQuery *)queryForTable
 {
     
@@ -107,7 +108,7 @@
         PFObject *question = [self.objects objectAtIndex:indexPath.row];
 
         QuestionViewController *questionController = [segue destinationViewController];
-        questionController.questionText = question[self.textKey];
+        questionController.question = question;
         
     }
 }
