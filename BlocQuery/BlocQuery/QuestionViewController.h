@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <ParseUI/ParseUI.h>
 #import "PFObject.h"
 
-@interface QuestionViewController : UIViewController
+@interface QuestionViewController : UIViewController<UITableViewDataSource>
 
 @property (strong,nonatomic) PFObject *question;
+@property (weak, nonatomic) IBOutlet UITableView *answerTableView;
 
 @end

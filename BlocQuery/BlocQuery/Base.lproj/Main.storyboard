@@ -54,14 +54,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="md8-sN-Nan">
-                                <rect key="frame" x="7" y="72" width="587" height="134"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02j-5T-HK0">
+                                <rect key="frame" x="57" y="79" width="474" height="44"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="40" sectionHeaderHeight="1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xw0-O7-1Us">
+                                <rect key="frame" x="57" y="131" width="474" height="417"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AnswerCell" textLabel="4hM-MR-1SJ" detailTextLabel="i0B-8T-wZi" style="IBUITableViewCellStyleSubtitle" id="ZIE-Sm-IAj">
+                                        <rect key="frame" x="0.0" y="65" width="474" height="40"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZIE-Sm-IAj" id="oO9-Ns-N5b">
+                                            <rect key="frame" x="0.0" y="0.0" width="474" height="39"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4hM-MR-1SJ">
+                                                    <rect key="frame" x="15" y="3" width="32" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="i0B-8T-wZi">
+                                                    <rect key="frame" x="15" y="23" width="41" height="14"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="zXC-ds-tUI" id="qze-cm-ifK"/>
+                                    <outlet property="delegate" destination="zXC-ds-tUI" id="pU2-yX-d8e"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -71,13 +110,16 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ESO-13-XGq">
                             <connections>
                                 <action selector="addAnswer:" destination="zXC-ds-tUI" id="ubP-XD-DzE"/>
-                                <segue destination="BdS-eB-ZTF" kind="show" identifier="addAnswer" id="aaq-5o-cdw"/>
+                                <segue destination="BdS-eB-ZTF" kind="popoverPresentation" identifier="addAnswer" popoverAnchorBarButtonItem="ESO-13-XGq" id="aaq-5o-cdw">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
+                                </segue>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="questionTextView" destination="md8-sN-Nan" id="JkZ-Dk-TwF"/>
+                        <outlet property="answerTableView" destination="Xw0-O7-1Us" id="n3G-g0-BAp"/>
+                        <outlet property="questionTextLabel" destination="02j-5T-HK0" id="iD5-5h-PUj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wvD-4Q-jTg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -96,12 +138,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Respond with an answer.." clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tEE-nt-fEM">
-                                <rect key="frame" x="95" y="218" width="447" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="emailAddress" returnKeyType="go"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5n-9V-hhn">
                                 <rect key="frame" x="95" y="82" width="447" height="78"/>
                                 <animations/>
@@ -109,19 +145,38 @@
                                     <constraint firstAttribute="height" constant="78" id="hNg-qs-9b3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iBM-5D-fRk">
+                                <rect key="frame" x="279" y="214" width="79" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="79" id="z2R-N4-ZyR"/>
+                                </constraints>
+                                <state key="normal" title="Answer"/>
+                                <connections>
+                                    <action selector="submitAnswer:" destination="BdS-eB-ZTF" eventType="touchUpInside" id="FNo-D9-Vbn"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Respond with an answer.." clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tEE-nt-fEM">
+                                <rect key="frame" x="95" y="169" width="447" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="emailAddress" returnKeyType="go"/>
+                            </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="p5n-9V-hhn" firstAttribute="leading" secondItem="tEE-nt-fEM" secondAttribute="leading" id="5mO-4M-jXI"/>
                             <constraint firstItem="p5n-9V-hhn" firstAttribute="trailing" secondItem="tEE-nt-fEM" secondAttribute="trailing" id="BFd-nW-Xlp"/>
+                            <constraint firstItem="iBM-5D-fRk" firstAttribute="centerY" secondItem="TTe-Xz-RvM" secondAttribute="centerY" constant="-71" id="BUj-bK-F1u"/>
                             <constraint firstAttribute="trailingMargin" secondItem="p5n-9V-hhn" secondAttribute="trailing" constant="38" id="bEY-sF-umf"/>
                             <constraint firstItem="p5n-9V-hhn" firstAttribute="leading" secondItem="TTe-Xz-RvM" secondAttribute="leadingMargin" constant="75" id="fEy-IY-GOA"/>
-                            <constraint firstItem="p5n-9V-hhn" firstAttribute="top" secondItem="GyF-B3-yLW" secondAttribute="bottom" constant="18" id="jm2-RL-KEd"/>
-                            <constraint firstItem="tEE-nt-fEM" firstAttribute="top" secondItem="p5n-9V-hhn" secondAttribute="bottom" constant="58" id="qOE-re-Hfo"/>
+                            <constraint firstItem="p5n-9V-hhn" firstAttribute="top" secondItem="GyF-B3-yLW" secondAttribute="bottom" constant="62" id="jm2-RL-KEd"/>
+                            <constraint firstItem="iBM-5D-fRk" firstAttribute="centerX" secondItem="tEE-nt-fEM" secondAttribute="centerX" id="oNF-qz-pfi"/>
+                            <constraint firstItem="tEE-nt-fEM" firstAttribute="top" secondItem="p5n-9V-hhn" secondAttribute="bottom" constant="9" id="qOE-re-Hfo"/>
                         </constraints>
                     </view>
                     <connections>

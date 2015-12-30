@@ -8,9 +8,11 @@
 
 #import "AnswerViewController.h"
 
+
 @interface AnswerViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 @property (weak, nonatomic) IBOutlet UITextField *answerTextField;
+- (IBAction)submitAnswer:(id)sender;
 @end
 
 @implementation AnswerViewController
@@ -21,13 +23,73 @@
     
     self.navigationController.navigationBar.topItem.title = @"Question";
     self.questionLabel.text = self.question[@"questionText"];
+    
+    [self.answerTextField becomeFirstResponder];
+    
 
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
+
+
+- (IBAction)submitAnswer:(id)sender
+{
+    PFObject *myAnswer = [PFObject objectWithClassName:@"Answer"];
+    myAnswer[@"answerText"] = self.answerTextField.text;
+    [myAnswer setObject:self.question forKey:@"question"];
+    [myAnswer setObject:[PFUser currentUser] forKey:@"createdBy"];
+    
+    [myAnswer saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        
+        if (succeeded)
+        {
+            NSLog(@"Successful save");
+            
+            //create the relation after successful save of myAnswer
+            PFRelation *relation = [self.question relationForKey:@"answers"];
+            [relation addObject:myAnswer];
+            [self.question saveInBackground];
+            
+            [self dismissViewControllerAnimated:TRUE completion:nil];
+        }
+        else
+        {
+            //this should be presented in an alertview
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+  
+
+
+}
+
+#pragma mark - UITextViewDelegate
+
+//- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+//{
+//    [self setIsWritingComment:YES animated:YES];
+//    [self.delegate commentViewWillStartEditing:self];
+//    
+//    return YES;
+//}
+//
+//- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+//{
+//    NSString *newText = [textView.text stringByReplacingCharactersInRange:range withString:text];
+//    [self.delegate commentView:self textDidChange:newText];
+//    return YES;
+//}
+//
+//- (BOOL)textViewShouldEndEditing:(UITextView *)textView
+//{
+//    BOOL hasComment = (textView.text.length > 0);
+//    [self setIsWritingComment:hasComment animated:YES];
+//    
+//    return YES;
+//}
 
 /*
 #pragma mark - Navigation
@@ -38,5 +100,6 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 @end

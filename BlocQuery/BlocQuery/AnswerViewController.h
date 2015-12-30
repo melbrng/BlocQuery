@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "PFObject.h"
+#import "PFUser.h"
+#import "PFRelation.h"
 
-@interface AnswerViewController : UIViewController
+@interface AnswerViewController : UIViewController <UITextViewDelegate>
 
 @property (strong,nonatomic) PFObject *question;
 

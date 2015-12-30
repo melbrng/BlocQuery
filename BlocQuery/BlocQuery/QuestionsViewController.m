@@ -94,7 +94,6 @@
         }
     
     cell.textLabel.text = object[self.textKey];
-//    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",  object[@"priority"]];
 
     return cell;
 }

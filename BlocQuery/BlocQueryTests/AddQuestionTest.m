@@ -9,9 +9,6 @@
 #import <XCTest/XCTest.h>
 #import <Parse/Parse.h>
 
-
-
-
 @interface AddQuestionTest : XCTestCase
 
 @end

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "8DB89EA2A5A24272CBCC5A1E715D31C82B3B1030",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "8DB89EA2A5A24272CBCC5A1E715D31C82B3B1030" : 0,
+    "F272AE5EB994D5C257B4A2876F1E85A7CFF50CF6" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "87029DBC-372F-4EE0-9DE4-E466B9BBADD2",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "8DB89EA2A5A24272CBCC5A1E715D31C82B3B1030" : "BlocQuery\/",
+    "F272AE5EB994D5C257B4A2876F1E85A7CFF50CF6" : "Blocstagram\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "BlocQuery",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "BlocQuery.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:melbrng\/BlocQuery",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8DB89EA2A5A24272CBCC5A1E715D31C82B3B1030"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:melbrng\/Blocstagram.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F272AE5EB994D5C257B4A2876F1E85A7CFF50CF6"
+    }
+  ]
+}

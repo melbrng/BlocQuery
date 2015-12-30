@@ -12,8 +12,8 @@
 
 @interface QuestionViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextView *questionTextView;
-
+@property (weak, nonatomic) IBOutlet UILabel *questionTextLabel;
+@property (strong,nonatomic) NSArray *answers;
 @end
 
 @implementation QuestionViewController
@@ -22,27 +22,91 @@
 {
     [super viewDidLoad];
     
+    [self queryForAnswers];
+    
     self.navigationController.navigationBar.topItem.title = @"Questions";
+    
+    self.questionTextLabel.text = self.question[@"questionText"];
+}
 
-//    UIBarButtonItem *addAnswerButton = [[UIBarButtonItem alloc]
-//                                   initWithTitle:@"Answer"
-//                                   style:UIBarButtonItemStylePlain
-//                                   target:self
-//                                   action:@selector(addAnswer:)];
-//    
-//    self.navigationItem.rightBarButtonItem = addAnswerButton;
-    self.questionTextView.text = self.question[@"questionText"];
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self queryForAnswers];
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-   
+    
 }
-- (IBAction)addAnswer:(id)sender
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"Answering");
+    return self.answers.count;
 }
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+        cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifier = @"AnswerCell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (!cell)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                      reuseIdentifier:cellIdentifier];
+    }
+    
+    PFObject* answer = (PFObject*)[self.answers objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = answer[@"answerText"];
+  
+    NSDate *createdAt = answer.createdAt;
+    NSString *dateString = [NSDateFormatter localizedStringFromDate:createdAt
+                                                          dateStyle:NSDateFormatterShortStyle
+                                                          timeStyle:NSDateFormatterNoStyle];
+    cell.detailTextLabel.text = dateString;
+    
+    return cell;
+}
+
+#pragma mark - Query
+
+-(void)queryForAnswers
+{
+    // create a relation based on the authors key
+    PFRelation *relation = [self.question relationForKey:@"answers"];
+    
+    // generate a query based on that relation
+    PFQuery *query = [relation query];
+    [query orderByDescending:@"createdAt"];
+   // self.answers =[query findObjects];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error)
+        {
+            self.answers = objects;
+            
+            [self.answerTableView reloadData];
+        }
+        else
+        {
+            //log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+    
+}
+
+#pragma mark - Segue
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
