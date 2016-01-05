@@ -66,31 +66,6 @@
 
 }
 
-#pragma mark - UITextViewDelegate
-
-//- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
-//{
-//    [self setIsWritingComment:YES animated:YES];
-//    [self.delegate commentViewWillStartEditing:self];
-//    
-//    return YES;
-//}
-//
-//- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
-//{
-//    NSString *newText = [textView.text stringByReplacingCharactersInRange:range withString:text];
-//    [self.delegate commentView:self textDidChange:newText];
-//    return YES;
-//}
-//
-//- (BOOL)textViewShouldEndEditing:(UITextView *)textView
-//{
-//    BOOL hasComment = (textView.text.length > 0);
-//    [self setIsWritingComment:hasComment animated:YES];
-//    
-//    return YES;
-//}
-
 /*
 #pragma mark - Navigation
 

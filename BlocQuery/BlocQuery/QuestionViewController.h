@@ -10,9 +10,8 @@
 #import <ParseUI/ParseUI.h>
 #import "PFObject.h"
 
-@interface QuestionViewController : UIViewController<UITableViewDataSource>
+@interface QuestionViewController : PFQueryTableViewController
 
 @property (strong,nonatomic) PFObject *question;
-@property (weak, nonatomic) IBOutlet UITableView *answerTableView;
 
 @end

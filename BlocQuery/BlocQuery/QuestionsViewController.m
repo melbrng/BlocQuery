@@ -101,7 +101,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"showQuestion"])
+    if ([[segue identifier] isEqualToString:@"ShowQuestion"])
     {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         PFObject *question = [self.objects objectAtIndex:indexPath.row];
