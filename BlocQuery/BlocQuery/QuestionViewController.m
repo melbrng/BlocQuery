@@ -18,6 +18,7 @@
 
 static UIFont *lightFont;
 static NSParagraphStyle *paragraphStyle;
+static BOOL firstLoad;
 
 @implementation QuestionViewController
 
@@ -41,19 +42,16 @@ static NSParagraphStyle *paragraphStyle;
         // The number of objects to show per page
         self.objectsPerPage = 25;
         
+        firstLoad = YES;
+        
     }
     return self;
 }
 
--(void)viewDidAppear:(BOOL)animated
-{
-    NSLog(@"viewDidAppear");
-    
-}
 
 - (PFQuery *)queryForTable
 {
-    
+
     // create a relation based on the authors key
     PFRelation *relation = [self.question relationForKey:@"answers"];
     
@@ -89,13 +87,13 @@ static NSParagraphStyle *paragraphStyle;
     
     self.questionLabel.text = [mutableQuestionString string];
     
-    
     return query;
 }
 
 #pragma mark - UITableViewDataSource
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return 1;
 }
 
@@ -130,6 +128,24 @@ static NSParagraphStyle *paragraphStyle;
     return cell;
 }
 
+- (void)answerViewControllerDidAnswer:(PFObject *)answer
+{
+    [self.answers addObject:answer];
+}
+
+#pragma mark - AnswerViewDelegate
+
+- (void)answerViewControllerDidSave:(PFObject *)answer
+{
+    if (answer)
+    {
+
+        [self loadObjects];
+        
+    }
+
+}
+
 
 #pragma mark - Segue
 
@@ -139,6 +155,9 @@ static NSParagraphStyle *paragraphStyle;
     {
         
         AnswerViewController *answerController = [segue destinationViewController];
+        
+        //*** You ALWAYS forget to set the delegate ***
+        answerController.delegate = self;
         answerController.question = self.question;
         
     }

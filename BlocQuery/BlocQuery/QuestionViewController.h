@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <ParseUI/ParseUI.h>
 #import "PFObject.h"
+#import "AnswerViewController.h"
 
-@interface QuestionViewController : PFQueryTableViewController
+@interface QuestionViewController : PFQueryTableViewController<AnswerViewControllerDelegate>
 
 @property (strong,nonatomic) PFObject *question;
+@property (strong,nonatomic) NSMutableArray *answers;
 
 @end

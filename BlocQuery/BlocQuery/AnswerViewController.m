@@ -52,6 +52,8 @@
             PFRelation *relation = [self.question relationForKey:@"answers"];
             [relation addObject:myAnswer];
             [self.question saveInBackground];
+
+            [self.delegate answerViewControllerDidSave:myAnswer];
             
             [self dismissViewControllerAnimated:TRUE completion:nil];
         }
@@ -62,8 +64,6 @@
         }
     }];
   
-
-
 }
 
 /*

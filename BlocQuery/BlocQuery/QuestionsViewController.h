@@ -12,4 +12,5 @@
 
 @interface QuestionsViewController : PFQueryTableViewController
 @property (strong,nonatomic) NSString *username;
+
 @end

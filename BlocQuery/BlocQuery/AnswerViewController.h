@@ -11,8 +11,16 @@
 #import "PFUser.h"
 #import "PFRelation.h"
 
+@class AnswerViewController;
+
+//Delegate to let is know if our answer was saved successfully
+@protocol AnswerViewControllerDelegate <NSObject>
+- (void)answerViewControllerDidSave:(PFObject *)answer;
+@end
+
 @interface AnswerViewController : UIViewController <UITextViewDelegate>
 
 @property (strong,nonatomic) PFObject *question;
+@property (nonatomic, weak) id <AnswerViewControllerDelegate> delegate;
 
 @end
