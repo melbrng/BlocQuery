@@ -36,7 +36,13 @@
                             <outlet property="delegate" destination="fef-41-Jmu" id="KoA-w8-cyd"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="aZZ-oP-mZX"/>
+                    <navigationItem key="navigationItem" id="aZZ-oP-mZX">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="CqA-s9-Lpq">
+                            <connections>
+                                <action selector="addQuestion:" destination="fef-41-Jmu" id="kwK-TH-4bG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PwM-tY-qxk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

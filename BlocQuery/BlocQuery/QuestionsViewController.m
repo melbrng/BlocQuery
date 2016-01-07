@@ -12,6 +12,8 @@
 #import "Datasource.h"
 
 @interface QuestionsViewController ()
+- (IBAction)addQuestion:(id)sender;
+
 
 @end
 
@@ -70,7 +72,8 @@
 
 #pragma mark - UITableViewDataSource
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return 1;
 }
 
@@ -112,5 +115,48 @@
     }
 }
 
+
+- (IBAction)addQuestion:(id)sender
+{
+    
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Question"
+                                                                   message:@"This is an new question?"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"Question";
+        textField.secureTextEntry = NO;
+    }];
+    
+    UIAlertAction* addAction = [UIAlertAction actionWithTitle:@"Add"
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * action) {
+                                                    
+                                //add the question here
+                                PFObject *questionObject = [PFObject objectWithClassName:@"Question"];
+                                                    
+                                questionObject[@"questionText"] = alert.textFields[0].text;
+                                questionObject[@"user"] = [PFUser currentUser];
+                                                    
+                                [questionObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                                                        
+                                            if (succeeded)
+                                                {
+                                                    NSLog(@"Successful save");
+                                                    [self loadObjects];
+                                                }
+                                                else
+                                                {
+                                                    NSLog(@"Error: %@ %@", error, [error userInfo]);
+                                                }
+                                            }];
+                                                    
+                                }];
+    
+    [alert addAction:addAction];
+
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
 
 @end
