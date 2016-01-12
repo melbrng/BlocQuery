@@ -25,7 +25,7 @@
 		439F25AE1C21E16F007001C4 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 439F25AD1C21E16F007001C4 /* QuestionViewController.m */; };
 		43A8AF721C31EF4E004F1E05 /* AnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A8AF711C31EF4E004F1E05 /* AnswerViewController.m */; };
 		43A8AF731C31EF4E004F1E05 /* AnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A8AF711C31EF4E004F1E05 /* AnswerViewController.m */; };
-		C3224F7687AB1AA8C9427C2C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD061FD6615BD1F3E70A413F /* libPods.a */; };
+		71A3329B4FBE9A7303B221B2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2BC62AD38CEF13A0247537A /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,7 +79,7 @@
 		43A8AF701C31EF4E004F1E05 /* AnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerViewController.h; sourceTree = "<group>"; };
 		43A8AF711C31EF4E004F1E05 /* AnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerViewController.m; sourceTree = "<group>"; };
 		8B3FB4FCB01AC2A5A3BC7024 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		BD061FD6615BD1F3E70A413F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2BC62AD38CEF13A0247537A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3224F7687AB1AA8C9427C2C /* libPods.a in Frameworks */,
+				71A3329B4FBE9A7303B221B2 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,7 +115,7 @@
 				430B25E41C22167C004DE173 /* libPods.a */,
 				430B25E21C22143C004DE173 /* libParse.a */,
 				430B25E01C221420004DE173 /* libPods.a */,
-				BD061FD6615BD1F3E70A413F /* libPods.a */,
+				C2BC62AD38CEF13A0247537A /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

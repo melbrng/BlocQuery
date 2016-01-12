@@ -11,6 +11,7 @@
 #import "PFQuery.h"
 #import "Datasource.h"
 
+
 @interface QuestionsViewController ()
 - (IBAction)addQuestion:(id)sender;
 
@@ -119,16 +120,20 @@
 - (IBAction)addQuestion:(id)sender
 {
     
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Question"
-                                                                   message:@"This is an new question?"
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Query"
+                                                                   message:@"Ex: What is your favorite snack?"
                                                             preferredStyle:UIAlertControllerStyleAlert];
+    
+
     
     [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         textField.placeholder = @"Question";
         textField.secureTextEntry = NO;
+        
     }];
     
-    UIAlertAction* addAction = [UIAlertAction actionWithTitle:@"Add"
+    
+    UIAlertAction* addAction = [UIAlertAction actionWithTitle:@"Post"
                                     style:UIAlertActionStyleDefault
                                     handler:^(UIAlertAction * action) {
                                                     
@@ -153,9 +158,14 @@
                                                     
                                 }];
     
-    [alert addAction:addAction];
-
+    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                        style:UIAlertActionStyleCancel
+                                                      handler:nil];
     
+    [alert addAction:addAction];
+    [alert addAction:cancelAction];
+
+    [alert.view setNeedsLayout];
     [self presentViewController:alert animated:YES completion:nil];
 }
 
