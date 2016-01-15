@@ -8,6 +8,7 @@
 
 #import "QuestionsViewController.h"
 #import "QuestionViewController.h"
+#import "ProfileViewController.h"
 #import "PFQuery.h"
 #import "Datasource.h"
 
@@ -112,6 +113,13 @@
 
         QuestionViewController *questionController = [segue destinationViewController];
         questionController.question = question;
+        
+    }
+    else if ([[segue identifier] isEqualToString:@"ShowProfile"])
+    {
+        
+        ProfileViewController *profileController = [segue destinationViewController];
+        profileController.currentUser = [PFUser currentUser];
         
     }
 }

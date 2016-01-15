@@ -15,6 +15,7 @@
 		4368D1E41C18B0A3003B7D61 /* BlocQuery.png in Resources */ = {isa = PBXBuildFile; fileRef = 4368D1E21C18B0A3003B7D61 /* BlocQuery.png */; };
 		4368D1E51C18B0A3003B7D61 /* BlocQuery@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4368D1E31C18B0A3003B7D61 /* BlocQuery@2x.png */; };
 		4368D1E81C18EA08003B7D61 /* QuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4368D1E71C18EA08003B7D61 /* QuestionsViewController.m */; };
+		4375BEC41C4701C400AB980D /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4375BEC31C4701C400AB980D /* ProfileViewController.m */; };
 		439BBB5E1C14E0450070CCBB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 439BBB5D1C14E0450070CCBB /* main.m */; };
 		439BBB611C14E0450070CCBB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 439BBB601C14E0450070CCBB /* AppDelegate.m */; };
 		439BBB691C14E0450070CCBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 439BBB681C14E0450070CCBB /* Assets.xcassets */; };
@@ -59,6 +60,8 @@
 		4368D1E31C18B0A3003B7D61 /* BlocQuery@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BlocQuery@2x.png"; sourceTree = "<group>"; };
 		4368D1E61C18EA08003B7D61 /* QuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionsViewController.h; sourceTree = "<group>"; };
 		4368D1E71C18EA08003B7D61 /* QuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionsViewController.m; sourceTree = "<group>"; };
+		4375BEC21C4701C400AB980D /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		4375BEC31C4701C400AB980D /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		439BBB591C14E0450070CCBB /* BlocQuery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlocQuery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		439BBB5D1C14E0450070CCBB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		439BBB5F1C14E0450070CCBB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -208,6 +211,8 @@
 				439F25AD1C21E16F007001C4 /* QuestionViewController.m */,
 				43A8AF701C31EF4E004F1E05 /* AnswerViewController.h */,
 				43A8AF711C31EF4E004F1E05 /* AnswerViewController.m */,
+				4375BEC21C4701C400AB980D /* ProfileViewController.h */,
+				4375BEC31C4701C400AB980D /* ProfileViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -407,6 +412,7 @@
 			files = (
 				432BB3301C17680500ED7148 /* LoginViewController.m in Sources */,
 				4368D1E81C18EA08003B7D61 /* QuestionsViewController.m in Sources */,
+				4375BEC41C4701C400AB980D /* ProfileViewController.m in Sources */,
 				43A8AF721C31EF4E004F1E05 /* AnswerViewController.m in Sources */,
 				439F25AE1C21E16F007001C4 /* QuestionViewController.m in Sources */,
 				439BBB611C14E0450070CCBB /* AppDelegate.m in Sources */,
