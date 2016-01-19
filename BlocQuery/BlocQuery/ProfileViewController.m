@@ -11,7 +11,13 @@
 @interface ProfileViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UITextField *profileDescriptionTextField;
-@property (weak, nonatomic) IBOutlet UILabel *profileUserLabel;
+@property (weak, nonatomic) IBOutlet UILabel *profileUsernameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *profileFirstnameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *profileLastnameLabel;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveBarButton;
+
+- (IBAction)saveButton:(id)sender;
 
 @end
 
@@ -19,8 +25,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.profileUsernameLabel.text = self.profileUser.username;
+    self.profileFirstnameLabel.text = self.profileUser[@"firstname"];
+    self.profileLastnameLabel.text = self.profileUser[@"lastname"];
+    self.profileDescriptionTextField.text = self.profileUser[@"description"];
     
-    self.profileUserLabel.text = self.currentUser.username;
+    NSLog(@"currentUser : %@",[PFUser currentUser].username);
+     NSLog(@"loggedInUser : %@",self.profileUser.username);
+    
+    if ([PFUser currentUser].username  != self.profileUser.username)
+    {
+        [self.saveBarButton setEnabled:NO];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,4 +55,6 @@
 }
 */
 
+- (IBAction)saveButton:(id)sender {
+}
 @end

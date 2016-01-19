@@ -10,16 +10,22 @@
 #import "QuestionViewController.h"
 #import "ProfileViewController.h"
 #import "PFQuery.h"
-#import "Datasource.h"
+#import "QueryTableViewCell.h"
 
 
 @interface QuestionsViewController ()
+
 - (IBAction)addQuestion:(id)sender;
 
+@property (nonatomic, strong) UITapGestureRecognizer *imageViewTapGestureRecognizer;
+@property (nonatomic, strong) UITapGestureRecognizer *labelTapGestureRecognizer;
+@property (nonatomic, strong) PFUser *selectedUser ;
 
 @end
 
 @implementation QuestionsViewController
+
+static NSString *cellIdentifier = @"QuestionCell";
 
 //Storyboard
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -69,6 +75,9 @@
     
     [query orderByDescending:@"createdAt"];
     
+    //must use in order to retrieve the user associated with the query
+    [query includeKey:@"user"];
+    
     return query;
 }
 
@@ -84,25 +93,58 @@
     return self.objects.count;
 }
 
+//called each time before a row is displayed
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
                         object:(PFObject *)object
     {
-        static NSString *cellIdentifier = @"QuestionCell";
-
-        PFTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        if (!cell)
+        
+        QueryTableViewCell *queryCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+        PFUser *queryUser = [object objectForKey:@"user"];
+        
+        //add gesture recognizers
+        self.imageViewTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewTapFired:)];
+        [queryCell.profileImageView addGestureRecognizer:self.imageViewTapGestureRecognizer];
+         queryCell.profileImageView.userInteractionEnabled = YES;
+        queryCell.profileImageView.tag = indexPath.row;
+        
+        self.labelTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTapFired:)];
+        [queryCell.queryLabel addGestureRecognizer:self.labelTapGestureRecognizer];
+        queryCell.queryLabel.userInteractionEnabled = YES;
+        
+        
+        queryCell.queryLabel.text = object[self.textKey];
+        queryCell.profileUsernameLabel.text = queryUser.username;
+        
+        UIImage *profileImage = [queryUser objectForKey:@"profileImage"];
+        UIImage *defaultImage = [UIImage imageNamed:@"BlocQuery.png"];
+        
+        if (profileImage == nil)
         {
-            cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                          reuseIdentifier:cellIdentifier];
+            queryCell.profileImageView.image = defaultImage;
         }
-    
-    cell.textLabel.text = object[self.textKey];
 
-    return cell;
+    return queryCell;
 }
 
+- (void) imageViewTapFired:(UITapGestureRecognizer *)sender
+{
+    
+    self.selectedUser = [self.objects[sender.view.tag] objectForKey:@"user"];
+    
+    [self performSegueWithIdentifier:@"ShowProfile" sender:sender];
+    
+}
+
+- (void) labelTapFired:(UITapGestureRecognizer *)sender
+{
+    [self performSegueWithIdentifier:@"ShowQuestion" sender:sender];
+}
+
+
+
+#pragma mark -- Segue
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -117,9 +159,9 @@
     }
     else if ([[segue identifier] isEqualToString:@"ShowProfile"])
     {
-        
+    
         ProfileViewController *profileController = [segue destinationViewController];
-        profileController.currentUser = [PFUser currentUser];
+        profileController.profileUser = self.selectedUser;
         
     }
 }

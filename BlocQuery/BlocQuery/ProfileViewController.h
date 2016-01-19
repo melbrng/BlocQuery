@@ -11,6 +11,6 @@
 
 @interface ProfileViewController : UIViewController
 
-@property (strong,nonatomic) PFUser *currentUser;
+@property (strong,nonatomic) PFUser *profileUser;
 
 @end

@@ -16,13 +16,13 @@
 		4368D1E51C18B0A3003B7D61 /* BlocQuery@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4368D1E31C18B0A3003B7D61 /* BlocQuery@2x.png */; };
 		4368D1E81C18EA08003B7D61 /* QuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4368D1E71C18EA08003B7D61 /* QuestionsViewController.m */; };
 		4375BEC41C4701C400AB980D /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4375BEC31C4701C400AB980D /* ProfileViewController.m */; };
+		438B45C41C499399007FA725 /* QueryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 438B45C31C499399007FA725 /* QueryTableViewCell.m */; };
 		439BBB5E1C14E0450070CCBB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 439BBB5D1C14E0450070CCBB /* main.m */; };
 		439BBB611C14E0450070CCBB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 439BBB601C14E0450070CCBB /* AppDelegate.m */; };
 		439BBB691C14E0450070CCBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 439BBB681C14E0450070CCBB /* Assets.xcassets */; };
 		439BBB6C1C14E0450070CCBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 439BBB6A1C14E0450070CCBB /* LaunchScreen.storyboard */; };
 		439BBB771C14E0450070CCBB /* BlocQueryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 439BBB761C14E0450070CCBB /* BlocQueryTests.m */; };
 		439BBB821C14E0450070CCBB /* BlocQueryUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 439BBB811C14E0450070CCBB /* BlocQueryUITests.m */; };
-		439F25AB1C20CA0A007001C4 /* Datasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 439F25AA1C20CA0A007001C4 /* Datasource.m */; };
 		439F25AE1C21E16F007001C4 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 439F25AD1C21E16F007001C4 /* QuestionViewController.m */; };
 		43A8AF721C31EF4E004F1E05 /* AnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A8AF711C31EF4E004F1E05 /* AnswerViewController.m */; };
 		43A8AF731C31EF4E004F1E05 /* AnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A8AF711C31EF4E004F1E05 /* AnswerViewController.m */; };
@@ -62,6 +62,8 @@
 		4368D1E71C18EA08003B7D61 /* QuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionsViewController.m; sourceTree = "<group>"; };
 		4375BEC21C4701C400AB980D /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		4375BEC31C4701C400AB980D /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		438B45C21C499399007FA725 /* QueryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryTableViewCell.h; sourceTree = "<group>"; };
+		438B45C31C499399007FA725 /* QueryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryTableViewCell.m; sourceTree = "<group>"; };
 		439BBB591C14E0450070CCBB /* BlocQuery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlocQuery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		439BBB5D1C14E0450070CCBB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		439BBB5F1C14E0450070CCBB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -75,8 +77,6 @@
 		439BBB7D1C14E0450070CCBB /* BlocQueryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlocQueryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		439BBB811C14E0450070CCBB /* BlocQueryUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlocQueryUITests.m; sourceTree = "<group>"; };
 		439BBB831C14E0450070CCBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		439F25A91C20CA0A007001C4 /* Datasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Datasource.h; sourceTree = "<group>"; };
-		439F25AA1C20CA0A007001C4 /* Datasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Datasource.m; sourceTree = "<group>"; };
 		439F25AC1C21E16F007001C4 /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
 		439F25AD1C21E16F007001C4 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
 		43A8AF701C31EF4E004F1E05 /* AnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerViewController.h; sourceTree = "<group>"; };
@@ -151,8 +151,8 @@
 				432C25C51C1B83F7003133A5 /* Main.storyboard */,
 				439BBB5F1C14E0450070CCBB /* AppDelegate.h */,
 				439BBB601C14E0450070CCBB /* AppDelegate.m */,
-				439F25A91C20CA0A007001C4 /* Datasource.h */,
-				439F25AA1C20CA0A007001C4 /* Datasource.m */,
+				438B45C21C499399007FA725 /* QueryTableViewCell.h */,
+				438B45C31C499399007FA725 /* QueryTableViewCell.m */,
 				43EE70F11C19F9A700E66152 /* Controller */,
 				439BBB681C14E0450070CCBB /* Assets.xcassets */,
 				439BBB6A1C14E0450070CCBB /* LaunchScreen.storyboard */,
@@ -414,9 +414,9 @@
 				4368D1E81C18EA08003B7D61 /* QuestionsViewController.m in Sources */,
 				4375BEC41C4701C400AB980D /* ProfileViewController.m in Sources */,
 				43A8AF721C31EF4E004F1E05 /* AnswerViewController.m in Sources */,
+				438B45C41C499399007FA725 /* QueryTableViewCell.m in Sources */,
 				439F25AE1C21E16F007001C4 /* QuestionViewController.m in Sources */,
 				439BBB611C14E0450070CCBB /* AppDelegate.m in Sources */,
-				439F25AB1C20CA0A007001C4 /* Datasource.m in Sources */,
 				439BBB5E1C14E0450070CCBB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

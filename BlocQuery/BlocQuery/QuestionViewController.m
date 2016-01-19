@@ -128,12 +128,13 @@ static BOOL firstLoad;
     return cell;
 }
 
+#pragma mark - AnswerViewDelegate
+
 - (void)answerViewControllerDidAnswer:(PFObject *)answer
 {
     [self.answers addObject:answer];
 }
 
-#pragma mark - AnswerViewDelegate
 
 - (void)answerViewControllerDidSave:(PFObject *)answer
 {
