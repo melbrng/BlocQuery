@@ -60,14 +60,9 @@ static NSString *cellIdentifier = @"QuestionCell";
     return self;
 }
 
-//-(void)viewDidLoad
-//{
-//    NSLog(@"viewDidLoad");
-//}
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    NSLog(@"viewDidAppear");
     [self loadObjects];
 }
 

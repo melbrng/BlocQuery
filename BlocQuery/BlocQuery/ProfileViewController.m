@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *profileLastnameLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveBarButton;
 @property (nonatomic, strong) UITapGestureRecognizer *imageViewTapGestureRecognizer;
+@property (nonatomic,strong) UIActivityIndicatorView *indicator;
 
 - (IBAction)saveButton:(id)sender;
 
@@ -62,6 +63,14 @@ static void * SavingImageOrVideoContext = &SavingImageOrVideoContext;
     self.imageViewTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewTapFired:)];
     [self.profileImageView addGestureRecognizer:self.imageViewTapGestureRecognizer];
     self.profileImageView.userInteractionEnabled = YES;
+    
+    
+    self.indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.indicator.frame = CGRectMake(0.0, 0.0, 40.0, 40.0);
+    self.indicator.center = self.view.center;
+    [self.view addSubview:self.indicator];
+    [self.indicator bringSubviewToFront:self.view];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = TRUE;
 }
 
 - (void)didReceiveMemoryWarning
@@ -72,53 +81,70 @@ static void * SavingImageOrVideoContext = &SavingImageOrVideoContext;
 #pragma mark - UIImagePickerController
 - (void) imageViewTapFired:(UITapGestureRecognizer *)sender
 {
+    if ([PFUser currentUser].username  != self.profileUser.username)
+    {
+    
+        UIAlertController* notYouAlert = [UIAlertController alertControllerWithTitle:@"OOPS!"
+                                                                   message:@"You do not have permission to modify this profile!"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+//        UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+//                                                               style:UIAlertActionStyleCancel
+//                                                             handler:nil];
+//        [notYouAlert addAction:cancelAction];
+        [notYouAlert.view setNeedsLayout];
+        [self presentViewController:notYouAlert animated:YES completion:nil];
+    }
+    
+    else
+    {
     
     
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:nil
-                                                                   message:nil
-                                                            preferredStyle:UIAlertControllerStyleActionSheet];
-    
-    
-    UIAlertAction *photoAction = [UIAlertAction actionWithTitle:@"Photo Library"
-                                                          style:UIAlertActionStyleDefault
-                                                        handler:^(UIAlertAction * action) {
-                                                            
-                                                            UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-                                                            picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-                                                            picker.delegate = (id)self;
-                                                            picker.allowsEditing = YES;
-                                                            self.imagePickerController = picker;
-                                                            [self presentViewController:self.imagePickerController animated:YES completion:nil];
-                                                            
-                                                        }];
-    
-    UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"Camera"
-                                                           style:UIAlertActionStyleDefault
-                                                         handler:^(UIAlertAction * action) {
-                                                             
-                                                             UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-                                                             BOOL isCameraAvailable = [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront];
-                                                             
-                                                             //checks to see if camera is available
-                                                             picker.sourceType = (isCameraAvailable) ? UIImagePickerControllerSourceTypeCamera :
-                                                             UIImagePickerControllerSourceTypePhotoLibrary;
-                                                             picker.delegate = (id)self;
-                                                             picker.allowsEditing = YES;
-                                                             self.imagePickerController = picker;
-                                                             [self presentViewController:self.imagePickerController animated:YES completion:nil];
-                                                             
-                                                         }];
-    
-    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
-                                                           style:UIAlertActionStyleCancel
-                                                         handler:nil];
-    
-    [alert addAction:photoAction];
-    [alert addAction:cameraAction];
-    [alert addAction:cancelAction];
-    
-    [alert.view setNeedsLayout];
-    [self presentViewController:alert animated:YES completion:nil];
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:nil
+                                                                       message:nil
+                                                                preferredStyle:UIAlertControllerStyleActionSheet];
+
+
+        UIAlertAction *photoAction = [UIAlertAction actionWithTitle:@"Photo Library"
+                                                              style:UIAlertActionStyleDefault
+                                                            handler:^(UIAlertAction * action) {
+                                                                
+                                                                UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+                                                                picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                                                                picker.delegate = (id)self;
+                                                                picker.allowsEditing = YES;
+                                                                self.imagePickerController = picker;
+                                                                [self presentViewController:self.imagePickerController animated:YES completion:nil];
+                                                                
+                                                            }];
+
+        UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"Camera"
+                                                               style:UIAlertActionStyleDefault
+                                                             handler:^(UIAlertAction * action) {
+                                                                 
+                                                                 UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+                                                                 BOOL isCameraAvailable = [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront];
+                                                                 
+                                                                 //checks to see if camera is available
+                                                                 picker.sourceType = (isCameraAvailable) ? UIImagePickerControllerSourceTypeCamera :
+                                                                 UIImagePickerControllerSourceTypePhotoLibrary;
+                                                                 picker.delegate = (id)self;
+                                                                 picker.allowsEditing = YES;
+                                                                 self.imagePickerController = picker;
+                                                                 [self presentViewController:self.imagePickerController animated:YES completion:nil];
+                                                                 
+                                                             }];
+
+        UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                               style:UIAlertActionStyleCancel
+                                                             handler:nil];
+
+        [alert addAction:photoAction];
+        [alert addAction:cameraAction];
+        [alert addAction:cancelAction];
+
+        [alert.view setNeedsLayout];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
 }
 
 #pragma mark  - UIImagePickerControllerDelegate
@@ -153,7 +179,15 @@ static void * SavingImageOrVideoContext = &SavingImageOrVideoContext;
     NSData *imageData = UIImagePNGRepresentation(self.profileImage);
     PFFile *imageFile = [PFFile fileWithName:@"profileImage.png" data:imageData];
     self.profileUser[@"profileImage"] = imageFile;
-    [self.profileUser saveInBackground];
+
+    [self.indicator startAnimating];
+    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        [self.indicator stopAnimating];
+    } progressBlock:^(int percentDone) {
+       // self.progress = (float)percentDone*0.9/100;
+    }];
+    
+    //[self.profileUser saveInBackground];
 
 }
 @end
