@@ -11,6 +11,7 @@
 #import "ProfileViewController.h"
 #import "PFQuery.h"
 #import "QueryTableViewCell.h"
+#import "PFFile.h"
 
 
 @interface QuestionsViewController ()
@@ -59,7 +60,16 @@ static NSString *cellIdentifier = @"QuestionCell";
     return self;
 }
 
+//-(void)viewDidLoad
+//{
+//    NSLog(@"viewDidLoad");
+//}
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    NSLog(@"viewDidAppear");
+    [self loadObjects];
+}
 
 - (PFQuery *)queryForTable
 {
@@ -117,13 +127,28 @@ static NSString *cellIdentifier = @"QuestionCell";
         queryCell.queryLabel.text = object[self.textKey];
         queryCell.profileUsernameLabel.text = queryUser.username;
         
-        UIImage *profileImage = [queryUser objectForKey:@"profileImage"];
-        UIImage *defaultImage = [UIImage imageNamed:@"BlocQuery.png"];
+        PFFile *userImageFile = [queryUser objectForKey:@"profileImage"];
+        [userImageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+            if (!error)
+            {
+                UIImage *profileImage = [UIImage imageWithData:imageData];
+                queryCell.profileImageView.image = profileImage;
+                
+                if (profileImage == nil)
+                {
+                    queryCell.profileImageView.image = [UIImage imageNamed:@"BlocQuery.png"];
+                }
+
+            }
+        }];
         
-        if (profileImage == nil)
-        {
-            queryCell.profileImageView.image = defaultImage;
-        }
+//        UIImage *profileImage = [queryUser objectForKey:@"profileImage"];
+//        UIImage *defaultImage = [UIImage imageNamed:@"BlocQuery.png"];
+//        
+//        if (profileImage == nil)
+//        {
+//            queryCell.profileImageView.image = [UIImage imageNamed:@"BlocQuery.png"];
+//        }
 
     return queryCell;
 }
