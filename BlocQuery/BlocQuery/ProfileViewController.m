@@ -22,7 +22,7 @@
 @property (nonatomic, strong) UITapGestureRecognizer *imageViewTapGestureRecognizer;
 @property (nonatomic,strong) UIActivityIndicatorView *indicator;
 
-- (IBAction)saveButton:(id)sender;
+- (IBAction)saveProfileUpdates:(id)sender;
 
 @end
 
@@ -56,6 +56,7 @@ static void * SavingImageOrVideoContext = &SavingImageOrVideoContext;
         }
     }];
     
+    //disable the save button if the logged in user is not the profile user
     if ([PFUser currentUser].username  != self.profileUser.username)
     {
         [self.saveBarButton setEnabled:NO];
@@ -66,9 +67,9 @@ static void * SavingImageOrVideoContext = &SavingImageOrVideoContext;
     [self.profileImageView addGestureRecognizer:self.imageViewTapGestureRecognizer];
     self.profileImageView.userInteractionEnabled = YES;
     
-    
-    self.indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    self.indicator.frame = CGRectMake(0.0, 0.0, 40.0, 40.0);
+    //activity indicator for when we are saving our profile updates
+    self.indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    self.indicator.frame = CGRectMake(0.0, 0.0, 100.0, 100.0);
     self.indicator.center = self.view.center;
     [self.view addSubview:self.indicator];
     [self.indicator bringSubviewToFront:self.view];
@@ -89,10 +90,10 @@ static void * SavingImageOrVideoContext = &SavingImageOrVideoContext;
         UIAlertController* notYouAlert = [UIAlertController alertControllerWithTitle:@"OOPS!"
                                                                    message:@"You do not have permission to modify this profile!"
                                                             preferredStyle:UIAlertControllerStyleAlert];
-//        UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
-//                                                               style:UIAlertActionStyleCancel
-//                                                             handler:nil];
-//        [notYouAlert addAction:cancelAction];
+        UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                               style:UIAlertActionStyleCancel
+                                                             handler:nil];
+        [notYouAlert addAction:cancelAction];
         [notYouAlert.view setNeedsLayout];
         [self presentViewController:notYouAlert animated:YES completion:nil];
     }
@@ -162,20 +163,17 @@ static void * SavingImageOrVideoContext = &SavingImageOrVideoContext;
 }
 
 
-//-(void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
-//{
-//    
-//    NSParameterAssert(contextInfo == SavingImageOrVideoContext);
-//    NSLog(@"didFinishSavingWithError");
-//}
-
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
-- (IBAction)saveButton:(id)sender
+#pragma mark  - Save profile
+- (IBAction)saveProfileUpdates:(id)sender
+
 {
+    //TODO: Come up with a way of determing what needs to be saved to the cloud. IE. I only want to save a new image if i've selected one.
+    
     self.profileUser[@"firstName"] = self.firstNameTextField.text;
     self.profileUser[@"lastName"] = self.lastNameTextField.text;
     self.profileUser[@"description"] = self.profileDescriptionTextField.text;
@@ -187,12 +185,23 @@ static void * SavingImageOrVideoContext = &SavingImageOrVideoContext;
 
     [self.indicator startAnimating];
     [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        [self.indicator stopAnimating];
+        
+        //lets push this back onto the main thread
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+             [self.indicator stopAnimating];
+           
+        });
+       
+        
     } progressBlock:^(int percentDone) {
-       // self.progress = (float)percentDone*0.9/100;
+        
+        //TODO: Either grab a pod or play around with indicator to show progress of the save
+        
     }];
     
     [self.profileUser saveInBackground];
 
 }
+
 @end

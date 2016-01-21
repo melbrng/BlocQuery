@@ -60,7 +60,8 @@ static NSString *cellIdentifier = @"QuestionCell";
     return self;
 }
 
-
+//TODO: Introduce a delegate to set the profile image if it has been changed during a profile update.
+//TODO:This would be more efficient than making another query call to retrieve an update.
 -(void)viewDidAppear:(BOOL)animated
 {
     [self loadObjects];

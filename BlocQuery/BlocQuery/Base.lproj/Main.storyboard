@@ -103,7 +103,7 @@
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="em2-hH-dl7">
                                 <rect key="frame" x="136" y="415" width="328" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="dR0-jh-z9a"/>
+                                    <constraint firstAttribute="height" constant="21" id="eYA-Ca-7EP"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -134,18 +134,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="D6E-sO-fuX" firstAttribute="trailing" secondItem="rv1-eY-x44" secondAttribute="trailing" id="2LH-IT-UdA"/>
-                            <constraint firstItem="em2-hH-dl7" firstAttribute="top" secondItem="rv1-eY-x44" secondAttribute="bottom" constant="8" symbolic="YES" id="4nw-pj-LZ4"/>
                             <constraint firstItem="HeO-MY-2kO" firstAttribute="top" secondItem="gJT-Jf-10r" secondAttribute="bottom" constant="8" symbolic="YES" id="DkU-oF-90B"/>
                             <constraint firstItem="D6E-sO-fuX" firstAttribute="leading" secondItem="rv1-eY-x44" secondAttribute="leading" id="MQx-sn-vEC"/>
-                            <constraint firstItem="em2-hH-dl7" firstAttribute="leading" secondItem="D6E-sO-fuX" secondAttribute="leading" id="MTY-eQ-D8b"/>
-                            <constraint firstItem="em2-hH-dl7" firstAttribute="trailing" secondItem="D6E-sO-fuX" secondAttribute="trailing" id="Off-HG-yuv"/>
+                            <constraint firstItem="em2-hH-dl7" firstAttribute="trailing" secondItem="D6E-sO-fuX" secondAttribute="trailing" id="NGd-2v-Igj"/>
                             <constraint firstItem="rv1-eY-x44" firstAttribute="centerX" secondItem="DZ6-Vr-xhm" secondAttribute="centerX" id="VcJ-Vm-F74"/>
                             <constraint firstItem="rv1-eY-x44" firstAttribute="top" secondItem="UOg-19-Sol" secondAttribute="bottom" constant="8" symbolic="YES" id="X04-3F-VTU"/>
+                            <constraint firstItem="em2-hH-dl7" firstAttribute="leading" secondItem="D6E-sO-fuX" secondAttribute="leading" id="d6f-fW-vhz"/>
                             <constraint firstItem="D6E-sO-fuX" firstAttribute="leading" secondItem="PLa-dz-i5E" secondAttribute="leading" id="fQc-zu-k07"/>
                             <constraint firstItem="D6E-sO-fuX" firstAttribute="trailing" secondItem="PLa-dz-i5E" secondAttribute="trailing" id="flf-VI-fze"/>
                             <constraint firstItem="PLa-dz-i5E" firstAttribute="leading" secondItem="gJT-Jf-10r" secondAttribute="leading" id="g0c-EW-dRn"/>
                             <constraint firstItem="PLa-dz-i5E" firstAttribute="trailing" secondItem="gJT-Jf-10r" secondAttribute="trailing" id="mmj-XA-6Ak"/>
                             <constraint firstItem="PLa-dz-i5E" firstAttribute="top" secondItem="D6E-sO-fuX" secondAttribute="bottom" constant="8" symbolic="YES" id="p8D-P2-OqI"/>
+                            <constraint firstItem="em2-hH-dl7" firstAttribute="top" secondItem="rv1-eY-x44" secondAttribute="bottom" constant="8" symbolic="YES" id="qAr-jU-Lck"/>
                             <constraint firstItem="gJT-Jf-10r" firstAttribute="top" secondItem="PLa-dz-i5E" secondAttribute="bottom" constant="6" id="wkK-6P-vRS"/>
                         </constraints>
                     </view>
@@ -153,7 +153,7 @@
                     <navigationItem key="navigationItem" id="Bqz-tS-zWL">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="EkH-Ng-r1v">
                             <connections>
-                                <action selector="saveButton:" destination="e8D-ND-hBX" id="gx9-HD-FSa"/>
+                                <action selector="saveProfileUpdates:" destination="e8D-ND-hBX" id="Dzn-bA-nSo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
