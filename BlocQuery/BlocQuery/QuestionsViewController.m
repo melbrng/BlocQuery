@@ -21,6 +21,7 @@
 @property (nonatomic, strong) UITapGestureRecognizer *imageViewTapGestureRecognizer;
 @property (nonatomic, strong) UITapGestureRecognizer *labelTapGestureRecognizer;
 @property (nonatomic, strong) PFUser *selectedUser ;
+@property (nonatomic, strong) PFObject *selectedQuestion ;
 
 @end
 
@@ -118,7 +119,7 @@ static NSString *cellIdentifier = @"QuestionCell";
         self.labelTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTapFired:)];
         [queryCell.queryLabel addGestureRecognizer:self.labelTapGestureRecognizer];
         queryCell.queryLabel.userInteractionEnabled = YES;
-        
+        queryCell.queryLabel.tag = indexPath.row;
         
         queryCell.queryLabel.text = object[self.textKey];
         queryCell.profileUsernameLabel.text = queryUser.username;
@@ -138,13 +139,6 @@ static NSString *cellIdentifier = @"QuestionCell";
             }
         }];
         
-//        UIImage *profileImage = [queryUser objectForKey:@"profileImage"];
-//        UIImage *defaultImage = [UIImage imageNamed:@"BlocQuery.png"];
-//        
-//        if (profileImage == nil)
-//        {
-//            queryCell.profileImageView.image = [UIImage imageNamed:@"BlocQuery.png"];
-//        }
 
     return queryCell;
 }
@@ -160,6 +154,8 @@ static NSString *cellIdentifier = @"QuestionCell";
 
 - (void) labelTapFired:(UITapGestureRecognizer *)sender
 {
+    self.selectedQuestion = self.objects[sender.view.tag];
+    
     [self performSegueWithIdentifier:@"ShowQuestion" sender:sender];
 }
 
@@ -171,11 +167,9 @@ static NSString *cellIdentifier = @"QuestionCell";
 {
     if ([[segue identifier] isEqualToString:@"ShowQuestion"])
     {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        PFObject *question = [self.objects objectAtIndex:indexPath.row];
-
+        
         QuestionViewController *questionController = [segue destinationViewController];
-        questionController.question = question;
+        questionController.question = self.selectedQuestion;
         
     }
     else if ([[segue identifier] isEqualToString:@"ShowProfile"])
