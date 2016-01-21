@@ -16,8 +16,8 @@
 @property (nonatomic, strong) UIImage *profileImage;
 @property (weak, nonatomic) IBOutlet UITextField *profileDescriptionTextField;
 @property (weak, nonatomic) IBOutlet UILabel *profileUsernameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *profileFirstnameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *profileLastnameLabel;
+@property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveBarButton;
 @property (nonatomic, strong) UITapGestureRecognizer *imageViewTapGestureRecognizer;
 @property (nonatomic,strong) UIActivityIndicatorView *indicator;
@@ -35,22 +35,24 @@ static void * SavingImageOrVideoContext = &SavingImageOrVideoContext;
     [super viewDidLoad];
 
     self.profileUsernameLabel.text = self.profileUser.username;
-    self.profileFirstnameLabel.text = self.profileUser[@"firstname"];
-    self.profileLastnameLabel.text = self.profileUser[@"lastname"];
+    self.firstNameTextField.text = self.profileUser[@"firstName"];
+    self.lastNameTextField.text = self.profileUser[@"lastName"];
     self.profileDescriptionTextField.text = self.profileUser[@"description"];
     
     PFFile *userImageFile = [self.profileUser objectForKey:@"profileImage"];
+    
     [userImageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
         if (!error)
         {
-            UIImage *profileImage = [UIImage imageWithData:imageData];
-            self.profileImageView.image = profileImage;
-            
-            if (profileImage == nil)
+            self.profileImage = [UIImage imageWithData:imageData];
+           
+            if (self.profileImage == nil)
             {
-                self.profileImageView.image = [UIImage imageNamed:@"BlocQuery.png"];
+                
+                self.profileImage = [UIImage imageNamed:@"BlocQuery.png"];
             }
             
+             self.profileImageView.image = self.profileImage;
         }
     }];
     
@@ -160,13 +162,12 @@ static void * SavingImageOrVideoContext = &SavingImageOrVideoContext;
 }
 
 
-
--(void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
-{
-    
-    NSParameterAssert(contextInfo == SavingImageOrVideoContext);
-    NSLog(@"didFinishSavingWithError");
-}
+//-(void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+//{
+//    
+//    NSParameterAssert(contextInfo == SavingImageOrVideoContext);
+//    NSLog(@"didFinishSavingWithError");
+//}
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
@@ -175,7 +176,11 @@ static void * SavingImageOrVideoContext = &SavingImageOrVideoContext;
 
 - (IBAction)saveButton:(id)sender
 {
+    self.profileUser[@"firstName"] = self.firstNameTextField.text;
+    self.profileUser[@"lastName"] = self.lastNameTextField.text;
+    self.profileUser[@"description"] = self.profileDescriptionTextField.text;
     
+    //save the image
     NSData *imageData = UIImagePNGRepresentation(self.profileImage);
     PFFile *imageFile = [PFFile fileWithName:@"profileImage.png" data:imageData];
     self.profileUser[@"profileImage"] = imageFile;
@@ -187,7 +192,7 @@ static void * SavingImageOrVideoContext = &SavingImageOrVideoContext;
        // self.progress = (float)percentDone*0.9/100;
     }];
     
-    //[self.profileUser saveInBackground];
+    [self.profileUser saveInBackground];
 
 }
 @end
