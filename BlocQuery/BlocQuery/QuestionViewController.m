@@ -8,6 +8,7 @@
 
 #import "QuestionViewController.h"
 #import "AnswerViewController.h"
+#import "AnswerTableViewCell.h"
 
 
 @interface QuestionViewController ()
@@ -65,7 +66,7 @@ static BOOL firstLoad;
         query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     }
     
-    [query orderByDescending:@"createdAt"];
+    [query orderByDescending:@"votes"];
     
     
     CGFloat questionFontSize = 10;
@@ -109,23 +110,65 @@ static BOOL firstLoad;
 {
     static NSString *cellIdentifier = @"AnswerCell";
     
-    PFTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    AnswerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (!cell)
     {
-        cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+        cell = [[AnswerTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                       reuseIdentifier:cellIdentifier];
     }
     
-    cell.textLabel.text = object[self.textKey];
+    [cell.upVotesButton addTarget:self action:@selector(upVoteAnswer:) forControlEvents:UIControlEventTouchUpInside];
     
-    NSDate *createdAt = object.createdAt;
-    NSString *dateString = [NSDateFormatter localizedStringFromDate:createdAt
-                                                          dateStyle:NSDateFormatterShortStyle
-                                                          timeStyle:NSDateFormatterNoStyle];
-    cell.detailTextLabel.text = dateString;
+    cell.answerLabel.text = object[self.textKey];
+    
+    //set the tag of the button;this will be used to identify the selected answer in the objects array when calling upVoteAnswer
+    cell.upVotesButton.tag = indexPath.row;
+
+    NSNumber *upVotes = object[@"votes"];
+    
+    NSString *upVoteString = [NSString stringWithFormat:@"%d votes", [upVotes intValue]];
+    cell.upVotesLabel.text = upVoteString;
+   
     
     return cell;
+}
+
+-(void)upVoteAnswer:(UIButton *)sender
+{
+    
+    PFObject *answer = self.objects[sender.tag];
+    NSNumber *upVotes = answer[@"votes"];
+    int i = [upVotes intValue];
+    
+    if ([sender isSelected] )
+    {
+        [sender setSelected:NO];
+        i--;
+    }
+    else
+    {
+        [sender setSelected:YES];
+        i ++;
+    }
+    
+    answer[@"votes"] = [NSNumber numberWithInt:i];
+    
+    //TODO:Find a way to do this one time instead of everytime the button is selected/deselected
+    [answer saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        
+        if (succeeded)
+        {
+            NSLog(@"Successful save");
+            
+        }
+        else
+        {
+            //TODO: This should be presented in an alertview
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+    
 }
 
 #pragma mark - AnswerViewDelegate
@@ -165,4 +208,6 @@ static BOOL firstLoad;
 }
 
 
+- (IBAction)upVoteButton:(id)sender {
+}
 @end
