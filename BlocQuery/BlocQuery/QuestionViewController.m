@@ -159,7 +159,7 @@ static BOOL firstLoad;
         
         if (succeeded)
         {
-            NSLog(@"Successful save");
+            [self loadObjects];
             
         }
         else
@@ -208,6 +208,5 @@ static BOOL firstLoad;
 }
 
 
-- (IBAction)upVoteButton:(id)sender {
-}
+
 @end

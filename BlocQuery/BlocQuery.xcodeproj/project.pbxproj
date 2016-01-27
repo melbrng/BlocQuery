@@ -154,10 +154,7 @@
 				432C25C51C1B83F7003133A5 /* Main.storyboard */,
 				439BBB5F1C14E0450070CCBB /* AppDelegate.h */,
 				439BBB601C14E0450070CCBB /* AppDelegate.m */,
-				438B45C21C499399007FA725 /* QueryTableViewCell.h */,
-				438B45C31C499399007FA725 /* QueryTableViewCell.m */,
-				43BAE3031C593C13004286AA /* AnswerTableViewCell.h */,
-				43BAE3041C593C13004286AA /* AnswerTableViewCell.m */,
+				43BAE3061C59669B004286AA /* View */,
 				43EE70F11C19F9A700E66152 /* Controller */,
 				439BBB681C14E0450070CCBB /* Assets.xcassets */,
 				439BBB6A1C14E0450070CCBB /* LaunchScreen.storyboard */,
@@ -194,6 +191,17 @@
 				439BBB831C14E0450070CCBB /* Info.plist */,
 			);
 			path = BlocQueryUITests;
+			sourceTree = "<group>";
+		};
+		43BAE3061C59669B004286AA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				438B45C21C499399007FA725 /* QueryTableViewCell.h */,
+				438B45C31C499399007FA725 /* QueryTableViewCell.m */,
+				43BAE3031C593C13004286AA /* AnswerTableViewCell.h */,
+				43BAE3041C593C13004286AA /* AnswerTableViewCell.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		43EE70F01C19F98300E66152 /* Images */ = {
