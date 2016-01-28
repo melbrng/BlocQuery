@@ -206,10 +206,10 @@ static BOOL firstLoad;
 
 #pragma mark - AnswerViewDelegate
 
-- (void)answerViewControllerDidAnswer:(PFObject *)answer
-{
-    [self.answers addObject:answer];
-}
+//- (void)answerViewControllerDidAnswer:(PFObject *)answer
+//{
+//    [self.answers addObject:answer];
+//}
 
 
 - (void)answerViewControllerDidSave:(PFObject *)answer

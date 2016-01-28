@@ -31,13 +31,22 @@
 {
     self.logInController = [[PFLogInViewController alloc] init];
     self.logInController.delegate = self;
-    
     self.logInController.fields = (PFLogInFieldsUsernameAndPassword
                                    | PFLogInFieldsLogInButton
                                    | PFLogInFieldsSignUpButton
                                    | PFLogInFieldsPasswordForgotten
                                    | PFLogInFieldsDismissButton);
     
+    //customize the logo
+    UIFont *logoFont = [UIFont fontWithName:@"HelveticaNeue-Thin" size:50];
+    UILabel *logoLabel = [[UILabel alloc]init];
+    logoLabel.text = @"BlocQuery";
+    logoLabel.textColor = [UIColor blackColor];
+    logoLabel.font = logoFont;
+    self.logInController.logInView.logo = logoLabel;
+    [self.logInController.logInView.logo setFrame:CGRectMake(60.0, 12.0, 420.0, 68.0)];
+    
+    //SignUp view controller
     PFSignUpViewController *signUpController = [[PFSignUpViewController alloc]init];
     signUpController.delegate = self;
     self.logInController.signUpController = signUpController;
@@ -46,6 +55,7 @@
 
     
 }
+
 
 - (void)didReceiveMemoryWarning
 {
