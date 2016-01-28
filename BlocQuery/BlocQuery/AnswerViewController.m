@@ -40,6 +40,7 @@
     PFObject *myAnswer = [PFObject objectWithClassName:@"Answer"];
     myAnswer[@"answerText"] = self.answerTextField.text;
     myAnswer[@"votes"] = [NSNumber numberWithInt:0];
+    myAnswer[@"usersWhoVote"] = [[NSMutableArray alloc]init];
     [myAnswer setObject:self.question forKey:@"question"];
     [myAnswer setObject:[PFUser currentUser] forKey:@"createdBy"];
     

@@ -14,6 +14,7 @@
 @interface QuestionViewController ()
 @property (weak, nonatomic) IBOutlet UIView *questionHeaderView;
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
+@property (strong,nonatomic) NSMutableArray *usersWhoVote;
 
 @end
 
@@ -44,6 +45,8 @@ static BOOL firstLoad;
         self.objectsPerPage = 25;
         
         firstLoad = YES;
+        
+
         
     }
     return self;
@@ -118,41 +121,71 @@ static BOOL firstLoad;
                                       reuseIdentifier:cellIdentifier];
     }
     
-    [cell.upVotesButton addTarget:self action:@selector(upVoteAnswer:) forControlEvents:UIControlEventTouchUpInside];
-    
     cell.answerLabel.text = object[self.textKey];
+    
+    NSNumber *upVotes = object[@"votes"];
+    NSString *upVoteString = [NSString stringWithFormat:@"%d votes", [upVotes intValue]];
+    cell.upVotesLabel.text = upVoteString;
+    
+    //set the target for the upVotes button
+    [cell.upVotesButton addTarget:self action:@selector(upVoteAnswer:) forControlEvents:UIControlEventTouchUpInside];
     
     //set the tag of the button;this will be used to identify the selected answer in the objects array when calling upVoteAnswer
     cell.upVotesButton.tag = indexPath.row;
+    
+    //Check to see if the currentUser has voted and enable/disable the upVotes button
+    self.usersWhoVote = object[@"usersWhoVote"];
+    NSString *personObjectID = [PFUser currentUser].objectId;
+    
+    if([self.usersWhoVote containsObject:personObjectID])
+    {
+        [cell.upVotesButton setSelected:YES];
+    }
+    else
+    {
+        [cell.upVotesButton setSelected:NO];
+    }
 
-    NSNumber *upVotes = object[@"votes"];
-    
-    NSString *upVoteString = [NSString stringWithFormat:@"%d votes", [upVotes intValue]];
-    cell.upVotesLabel.text = upVoteString;
-   
-    
     return cell;
 }
 
 -(void)upVoteAnswer:(UIButton *)sender
 {
+    //lets add this here for now since I added the usersWhoVote array after answers were created
+    //new answers have this array initialized
     
+    if (self.usersWhoVote == nil)
+    {
+        self.usersWhoVote = [[NSMutableArray alloc]init];
+
+    }
+    
+    //retrieve the answer for the selected cell
     PFObject *answer = self.objects[sender.tag];
     NSNumber *upVotes = answer[@"votes"];
+    NSString *personObjectID = [PFUser currentUser].objectId;
+    
+    
     int i = [upVotes intValue];
     
+    //decrement the vote count and deselect upVote button
     if ([sender isSelected] )
     {
         [sender setSelected:NO];
+        [self.usersWhoVote removeObject:personObjectID];
         i--;
     }
+    //increment the vote count and set upVote button to selected
     else
     {
         [sender setSelected:YES];
+        [self.usersWhoVote addObject:personObjectID];
         i ++;
     }
     
+    //reset votes and users who vote array
     answer[@"votes"] = [NSNumber numberWithInt:i];
+    answer[@"usersWhoVote"] = self.usersWhoVote;
     
     //TODO:Find a way to do this one time instead of everytime the button is selected/deselected
     [answer saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
