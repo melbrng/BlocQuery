@@ -42,9 +42,6 @@ static NSString *cellIdentifier = @"QuestionCell";
         // The key of the PFObject to display in the label of the default cell style
         self.textKey = @"questionText";
         
-        // Uncomment the following line to specify the key of a PFFile on the PFObject to display in the imageView of the default cell style
-        // self.imageKey = @"image";
-        
         // Whether the built-in pull-to-refresh is enabled
         self.pullToRefreshEnabled = YES;
         
