@@ -47,13 +47,12 @@
     [self.logInController.logInView.logo setFrame:CGRectMake(60.0, 12.0, 420.0, 68.0)];
     
     //SignUp view controller
+    //TODO: Set a default profile image when a user signs up
     PFSignUpViewController *signUpController = [[PFSignUpViewController alloc]init];
     signUpController.delegate = self;
     self.logInController.signUpController = signUpController;
     [self presentViewController:self.logInController animated:YES completion:nil];
    
-
-    
 }
 
 

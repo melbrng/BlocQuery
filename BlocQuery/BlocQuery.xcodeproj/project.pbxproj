@@ -12,6 +12,10 @@
 		432777111C347F5200435221 /* AddAnswersTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 432777101C347F5200435221 /* AddAnswersTest.m */; };
 		432BB3301C17680500ED7148 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 432BB32F1C17680500ED7148 /* LoginViewController.m */; };
 		432C25C71C1B83F7003133A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 432C25C51C1B83F7003133A5 /* Main.storyboard */; };
+		435AF6741C5D54EB006CEB2C /* selected_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 435AF6701C5D54EB006CEB2C /* selected_2x.png */; };
+		435AF6751C5D54EB006CEB2C /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 435AF6711C5D54EB006CEB2C /* selected.png */; };
+		435AF6761C5D54EB006CEB2C /* thumbsup_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 435AF6721C5D54EB006CEB2C /* thumbsup_2x.png */; };
+		435AF6771C5D54EB006CEB2C /* thumbsup.png in Resources */ = {isa = PBXBuildFile; fileRef = 435AF6731C5D54EB006CEB2C /* thumbsup.png */; };
 		4368D1E41C18B0A3003B7D61 /* BlocQuery.png in Resources */ = {isa = PBXBuildFile; fileRef = 4368D1E21C18B0A3003B7D61 /* BlocQuery.png */; };
 		4368D1E51C18B0A3003B7D61 /* BlocQuery@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4368D1E31C18B0A3003B7D61 /* BlocQuery@2x.png */; };
 		4368D1E81C18EA08003B7D61 /* QuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4368D1E71C18EA08003B7D61 /* QuestionsViewController.m */; };
@@ -57,6 +61,10 @@
 		432BB32E1C17680500ED7148 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		432BB32F1C17680500ED7148 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		432C25C61C1B83F7003133A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		435AF6701C5D54EB006CEB2C /* selected_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected_2x.png; sourceTree = SOURCE_ROOT; };
+		435AF6711C5D54EB006CEB2C /* selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected.png; sourceTree = SOURCE_ROOT; };
+		435AF6721C5D54EB006CEB2C /* thumbsup_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbsup_2x.png; sourceTree = SOURCE_ROOT; };
+		435AF6731C5D54EB006CEB2C /* thumbsup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbsup.png; sourceTree = SOURCE_ROOT; };
 		4368D1E21C18B0A3003B7D61 /* BlocQuery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlocQuery.png; sourceTree = "<group>"; };
 		4368D1E31C18B0A3003B7D61 /* BlocQuery@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BlocQuery@2x.png"; sourceTree = "<group>"; };
 		4368D1E61C18EA08003B7D61 /* QuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionsViewController.h; sourceTree = "<group>"; };
@@ -207,6 +215,10 @@
 		43EE70F01C19F98300E66152 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				435AF6701C5D54EB006CEB2C /* selected_2x.png */,
+				435AF6711C5D54EB006CEB2C /* selected.png */,
+				435AF6721C5D54EB006CEB2C /* thumbsup_2x.png */,
+				435AF6731C5D54EB006CEB2C /* thumbsup.png */,
 				4368D1E21C18B0A3003B7D61 /* BlocQuery.png */,
 				4368D1E31C18B0A3003B7D61 /* BlocQuery@2x.png */,
 			);
@@ -348,7 +360,11 @@
 			files = (
 				439BBB6C1C14E0450070CCBB /* LaunchScreen.storyboard in Resources */,
 				432C25C71C1B83F7003133A5 /* Main.storyboard in Resources */,
+				435AF6741C5D54EB006CEB2C /* selected_2x.png in Resources */,
+				435AF6761C5D54EB006CEB2C /* thumbsup_2x.png in Resources */,
+				435AF6771C5D54EB006CEB2C /* thumbsup.png in Resources */,
 				439BBB691C14E0450070CCBB /* Assets.xcassets in Resources */,
+				435AF6751C5D54EB006CEB2C /* selected.png in Resources */,
 				4368D1E41C18B0A3003B7D61 /* BlocQuery.png in Resources */,
 				4368D1E51C18B0A3003B7D61 /* BlocQuery@2x.png in Resources */,
 			);

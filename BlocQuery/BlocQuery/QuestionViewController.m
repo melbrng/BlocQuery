@@ -15,12 +15,17 @@
 @property (weak, nonatomic) IBOutlet UIView *questionHeaderView;
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 @property (strong,nonatomic) NSMutableArray *usersWhoVote;
+@property (strong,nonatomic) NSMutableArray *sortedAnswers;
+@property (strong,nonatomic) NSArray *tempAnswers;
+@property (strong,nonatomic) UIImage *selectedImage;
+@property (strong,nonatomic) UIImage *thumbsUpImage;
 
 @end
 
 static UIFont *lightFont;
 static NSParagraphStyle *paragraphStyle;
 static BOOL firstLoad;
+
 
 @implementation QuestionViewController
 
@@ -46,9 +51,11 @@ static BOOL firstLoad;
         
         firstLoad = YES;
         
-
+        self.selectedImage = [UIImage imageNamed:@"selected.png"];
+        self.thumbsUpImage = [UIImage imageNamed:@"thumbsup.png"];
         
     }
+    
     return self;
 }
 
@@ -86,11 +93,12 @@ static BOOL firstLoad;
     mutableParagraphStyle.paragraphSpacingBefore = 5;
     paragraphStyle = mutableParagraphStyle;
     
+    //format out question text
     NSMutableAttributedString *mutableQuestionString = [[NSMutableAttributedString alloc] initWithString:self.question[@"questionText"]
         attributes:@{NSFontAttributeName : [lightFont fontWithSize:questionFontSize],NSParagraphStyleAttributeName : paragraphStyle}];
     
     self.questionLabel.text = [mutableQuestionString string];
-    
+
     return query;
 }
 
@@ -111,6 +119,7 @@ static BOOL firstLoad;
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
                         object:(PFObject *)object
 {
+    
     static NSString *cellIdentifier = @"AnswerCell";
     
     AnswerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -140,10 +149,12 @@ static BOOL firstLoad;
     if([self.usersWhoVote containsObject:personObjectID])
     {
         [cell.upVotesButton setSelected:YES];
+        [cell.upVotesButton setImage:self.selectedImage forState:UIControlStateSelected];
     }
     else
     {
         [cell.upVotesButton setSelected:NO];
+        [cell.upVotesButton setImage:self.thumbsUpImage forState:UIControlStateNormal];
     }
 
     return cell;
@@ -165,13 +176,13 @@ static BOOL firstLoad;
     NSNumber *upVotes = answer[@"votes"];
     NSString *personObjectID = [PFUser currentUser].objectId;
     
-    
     int i = [upVotes intValue];
     
     //decrement the vote count and deselect upVote button
     if ([sender isSelected] )
     {
         [sender setSelected:NO];
+        [sender setImage:self.selectedImage forState:UIControlStateSelected];
         [self.usersWhoVote removeObject:personObjectID];
         i--;
     }
@@ -179,6 +190,7 @@ static BOOL firstLoad;
     else
     {
         [sender setSelected:YES];
+        [sender setImage:self.thumbsUpImage forState:UIControlStateNormal];
         [self.usersWhoVote addObject:personObjectID];
         i ++;
     }
@@ -193,7 +205,7 @@ static BOOL firstLoad;
         if (succeeded)
         {
             [self loadObjects];
-            
+
         }
         else
         {

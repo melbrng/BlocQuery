@@ -13,7 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *queryLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
-@property (weak, nonatomic) IBOutlet UILabel *profileUsernameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *answersLabel;
 
 
 @end

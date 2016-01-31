@@ -119,9 +119,10 @@ static NSString *cellIdentifier = @"QuestionCell";
         queryCell.queryLabel.tag = indexPath.row;
         
         queryCell.queryLabel.text = object[self.textKey];
-        queryCell.profileUsernameLabel.text = queryUser.username;
+      //  queryCell.answersLabel.text = [NSString stringWithFormat:@"%ld answers",(long)query.countObjects ] ;
         
         PFFile *userImageFile = [queryUser objectForKey:@"profileImage"];
+        
         [userImageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
             if (!error)
             {
