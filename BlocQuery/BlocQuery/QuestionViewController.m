@@ -95,9 +95,11 @@ static BOOL firstLoad;
     
     //format out question text
     NSMutableAttributedString *mutableQuestionString = [[NSMutableAttributedString alloc] initWithString:self.question[@"questionText"]
-        attributes:@{NSFontAttributeName : [lightFont fontWithSize:questionFontSize],NSParagraphStyleAttributeName : paragraphStyle}];
+                                                        attributes:@{NSFontAttributeName : [lightFont fontWithSize:questionFontSize],NSParagraphStyleAttributeName : paragraphStyle}];
     
     self.questionLabel.text = [mutableQuestionString string];
+    [self.questionLabel.layer setCornerRadius:15];
+    [self.questionLabel.layer setMasksToBounds:YES];
 
     return query;
 }
@@ -181,16 +183,17 @@ static BOOL firstLoad;
     //decrement the vote count and deselect upVote button
     if ([sender isSelected] )
     {
-        [sender setSelected:NO];
+       
         [sender setImage:self.selectedImage forState:UIControlStateSelected];
+        [sender setSelected:NO];
         [self.usersWhoVote removeObject:personObjectID];
         i--;
     }
     //increment the vote count and set upVote button to selected
     else
     {
-        [sender setSelected:YES];
         [sender setImage:self.thumbsUpImage forState:UIControlStateNormal];
+        [sender setSelected:YES];
         [self.usersWhoVote addObject:personObjectID];
         i ++;
     }

@@ -8,6 +8,7 @@
 
 #import "QueryTableViewCell.h"
 
+
 @interface QueryTableViewCell ()<UIGestureRecognizerDelegate>
 
 
@@ -23,6 +24,7 @@
     
     if (self)
     {
+        
 
         
     }

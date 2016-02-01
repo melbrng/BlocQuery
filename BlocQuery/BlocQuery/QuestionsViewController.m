@@ -12,6 +12,7 @@
 #import "PFQuery.h"
 #import "QueryTableViewCell.h"
 #import "PFFile.h"
+#import <QuartzCore/QuartzCore.h>
 
 
 @interface QuestionsViewController ()
@@ -117,6 +118,8 @@ static NSString *cellIdentifier = @"QuestionCell";
         [queryCell.queryLabel addGestureRecognizer:self.labelTapGestureRecognizer];
         queryCell.queryLabel.userInteractionEnabled = YES;
         queryCell.queryLabel.tag = indexPath.row;
+        [queryCell.queryLabel.layer setCornerRadius:15];
+        [queryCell.queryLabel.layer setMasksToBounds:YES];
         
         queryCell.queryLabel.text = object[self.textKey];
       //  queryCell.answersLabel.text = [NSString stringWithFormat:@"%ld answers",(long)query.countObjects ] ;
